@@ -1,0 +1,41 @@
+name: Generate slide indexes
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "20[0-9][0-9]/**"
+      - "archive/**"
+      - "tools/generate_indexes.py"
+      - ".github/workflows/generate-indexes.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate index pages
+        run: python tools/generate_indexes.py
+
+      - name: Commit generated index pages
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html archive 20[0-9][0-9]/
+          if git diff --cached --quiet; then
+            echo "No generated index changes."
+            exit 0
+          fi
+          git commit -m "chore: update slide indexes [skip ci]"
+          git push

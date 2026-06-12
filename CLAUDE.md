@@ -18,12 +18,18 @@
 
 - 既存スライドを勝手に削除・改変しない(明示的に指示された場合のみ)
 - 新規スライドは `YYYY/MM/slide-name/index.html` の形で追加する
-  - フォルダ名は半角英小文字・数字・ハイフンのみ
+  - スライドフォルダ名は日本語も使用可能。共有しやすいURLにしたい場合は半角英小文字・数字・ハイフンを推奨
+  - スペースや記号はURL共有時に読みづらくなるため避ける
 - スライドを追加したら、月別一覧 `YYYY/MM/index.html` へのリンク追加を必ず行う
-  - 新しい月を作ったら年別一覧 `YYYY/index.html` にも追加
+  - 一覧ページは `python tools/generate_indexes.py` で自動生成する
+  - 新しい月を作った場合も、年別一覧 `YYYY/index.html` は同スクリプトで生成する
+  - アーカイブは `archive/YYYY/MM/slide-name/index.html` の形で管理する
+  - `index.html`、`YYYY/index.html`、`YYYY/MM/index.html`、`archive/index.html`、`archive/YYYY/index.html`、`archive/YYYY/MM/index.html` は手動編集せず、生成スクリプトを使う
+  - 自動生成される一覧ページにはライト/ダーク切替を含める。初期テーマはユーザーのOS・ブラウザ設定に合わせる
 - リンクはすべて相対パスで書く
   - ローカル絶対パス(`B:\` など)や `file:///` で始まるパスを残さない
   - 参照名と実ファイル名の大文字小文字を一致させる(GitHub Pagesは大文字小文字を区別する)
+  - 日本語フォルダ名は一覧生成スクリプトがhref内でURLエンコードする
 
 ### 素材・コンテンツ
 

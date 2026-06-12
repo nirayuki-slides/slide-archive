@@ -4,12 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026年 | Slide Archive</title>
+  <script>
+    (function() {
+      var theme = "light";
+      try {
+        theme = localStorage.getItem("slide-archive-theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch (error) {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/css/common.css">
 </head>
 <body>
+  <!-- このファイルは tools/generate_indexes.py が自動生成しています。手動編集せず、フォルダ構成を変更してからスクリプトを実行してください。 -->
   <header class="site-header">
-    <h1>2026年</h1>
-    <p>2026年のスライド一覧(月別)</p>
+    <div class="site-header__inner">
+      <div class="site-header__copy">
+        <h1>2026年</h1>
+        <p>2026年のスライド一覧(月別)</p>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <span class="theme-toggle__label" data-theme-label>Light</span>
+      </button>
+    </div>
   </header>
 
   <main class="container">
@@ -18,17 +41,6 @@
     </nav>
 
     <h2>月別一覧</h2>
-    <!--
-      月を追加するときは、下の <li> をコピーして
-      フォルダ名(01〜12)と表示名を書き換えてください。
-      例:
-      <li>
-        <a href="07/">
-          <span class="card-title">7月</span>
-          <span class="card-desc">2026年7月のスライド</span>
-        </a>
-      </li>
-    -->
     <ul class="card-list">
       <li>
         <a href="06/">
@@ -42,7 +54,57 @@
   </main>
 
   <footer class="site-footer">
-    Slide Archive — 静的HTMLスライド置き場
+    Slide Archive - 静的HTMLスライド置き場
   </footer>
+  <script>
+    (function() {
+      var root = document.documentElement;
+      var button = document.querySelector("[data-theme-toggle]");
+      var label = document.querySelector("[data-theme-label]");
+      var media = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function storedTheme() {
+        try {
+          return localStorage.getItem("slide-archive-theme");
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function setStoredTheme(theme) {
+        try {
+          localStorage.setItem("slide-archive-theme", theme);
+        } catch (error) {
+          return;
+        }
+      }
+
+      function applyTheme(theme) {
+        root.dataset.theme = theme;
+        if (button) {
+          button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+        }
+        if (label) {
+          label.textContent = theme === "dark" ? "Dark" : "Light";
+        }
+      }
+
+      applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
+
+      if (button) {
+        button.addEventListener("click", function() {
+          var next = root.dataset.theme === "dark" ? "light" : "dark";
+          applyTheme(next);
+          setStoredTheme(next);
+        });
+      }
+
+      media.addEventListener("change", function(event) {
+        if (!storedTheme()) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

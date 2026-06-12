@@ -12,6 +12,10 @@ desktop.ini
 node_modules/
 dist/
 
+# Python tooling
+__pycache__/
+*.pyc
+
 # Env / logs
 .env
 *.log

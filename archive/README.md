@@ -1,13 +1,16 @@
 # archive/
 
 古いスライドや、通常の一覧(年別・月別ページ)から外したスライドの置き場です。
-ここでも1スライド = 1フォルダとして扱い、`archive/slide-name/index.html` の形で置きます。
+ここでも1スライド = 1フォルダとして扱い、`archive/YYYY/MM/slide-name/index.html` の形で置きます。
 
 ## 運用ルール
 
-- 役目を終えたスライドは、`YYYY/MM/slide-name/` からこのフォルダへフォルダごと移動する
-- 移動したら、元の月別一覧ページ(`YYYY/MM/index.html`)からリンクを削除する
-- 必要なら `archive/index.html` にリンクを追加する(追加しなくてもよい)
+- 役目を終えたスライドは、`YYYY/MM/slide-name/` から `archive/YYYY/MM/slide-name/` へフォルダごと移動する
+- スライドフォルダ名は日本語も使用可能。共有しやすいURLにしたい場合は半角英小文字・数字・ハイフンを推奨
+- `archive/YYYY/index.html` と `archive/YYYY/MM/index.html` は自動生成されるので手で作らない
+- 移動したら、リポジトリルートで `python tools/generate_indexes.py` を実行して一覧ページを再生成する
+- GitHubへpushした場合は、GitHub Actionsでも一覧ページが自動生成される
+- `archive/index.html`、`archive/YYYY/index.html`、`archive/YYYY/MM/index.html` は自動生成対象なので手で編集しない
 
 ## 注意
 
