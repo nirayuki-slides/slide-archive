@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ★ここを書き換える:ページタイトル -->
+  <title>スライドタイトル | Slide Archive</title>
+  <!--
+    共通CSSの読み込み。
+    1行目: templates/simple-slide/ でプレビューするときに有効(コピー後は削除してよい)
+    2行目: YYYY/MM/slide-name/ にコピーしたときに有効
+    どちらか一方しか読み込まれないため、両方残っていても動作に問題はありません。
+  -->
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../../assets/css/common.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- ★ここを書き換える:スライドのタイトル -->
+    <h1>スライドタイトル</h1>
+    <!-- ★ここを書き換える:日付・発表者など -->
+    <p>YYYY-MM-DD / 発表者名</p>
+  </header>
+
+  <main class="container">
+    <!-- ★ここを書き換える:パンくず(年・月をコピー先に合わせる) -->
+    <nav class="breadcrumb">
+      <a href="../../../">トップ</a> /
+      <a href="../../">YYYY年</a> /
+      <a href="../">MM月</a> /
+      スライドタイトル
+    </nav>
+
+    <!-- ★ここを書き換える:概要 -->
+    <section class="slide-section">
+      <h2>概要</h2>
+      <p>このスライドの目的・要点を2〜3行で書きます。</p>
+    </section>
+
+    <!-- ★ここを書き換える:本文セクション(必要なだけコピーして増やす) -->
+    <section class="slide-section">
+      <h2>セクション1</h2>
+      <p>本文をここに書きます。</p>
+      <ul>
+        <li>ポイント1</li>
+        <li>ポイント2</li>
+      </ul>
+    </section>
+
+    <!-- ★ここを書き換える:画像置き場
+         画像はこのフォルダ内に置き、相対パスで参照します。
+         例: <img src="figure1.png" alt="図1の説明"> -->
+    <section class="slide-section">
+      <h2>図・画像</h2>
+      <!-- <img src="figure1.png" alt="図1の説明"> -->
+      <p>(画像を使う場合はこのフォルダに置いて参照してください)</p>
+    </section>
+
+    <!-- ★ここを書き換える:まとめ -->
+    <section class="slide-section">
+      <h2>まとめ</h2>
+      <p>結論・次のアクションなどを書きます。</p>
+    </section>
+
+    <a class="back-link" href="../">← 月別一覧へ戻る</a>
+  </main>
+
+  <footer class="site-footer">
+    Slide Archive — 静的HTMLスライド置き場
+  </footer>
+</body>
+</html>
