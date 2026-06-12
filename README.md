@@ -15,13 +15,13 @@ React・Vite・npm・外部ライブラリは使いません。
 slide-archive/
 ├─ index.html              … トップページ
 ├─ assets/css/common.css   … 共通CSS
-├─ templates/simple-slide/ … 新規スライドのコピー元テンプレート
 ├─ 2026/                   … 年別フォルダ
 │  ├─ index.html           … 月別一覧
 │  └─ 06/                  … 月別フォルダ
 │     ├─ index.html        … スライド一覧
-│     └─ sample-slide/     … スライド本体(フォルダ単位)
-└─ archive/                … 古いもの・一覧から外したものの置き場
+│     └─ slide-name/       … スライド本体(フォルダ単位)
+├─ archive/                … 古いもの・一覧から外したものの置き場
+└─ _local/                 … Git管理外のローカル作業置き場
 ```
 
 ## 公開中のスライド例
@@ -29,24 +29,23 @@ slide-archive/
 - きのこ派、勝利宣言:
   https://nirayuki-slides.github.io/slide-archive/2026/06/kinoko-presentation/
 - 豆腐入り大判つくね定食(体育会系大学生向けランチ企画):
-  https://nirayuki-slides.github.io/slide-archive/2026/06/restricted-lunch/
+  https://nirayuki-slides.github.io/slide-archive/archive/restricted-lunch/
 
 ## 運用ルール
 
 - 新規スライドは必ず `YYYY/MM/slide-name/index.html` の形で置く
 - 1スライド = 1フォルダ。画像などの素材も同じフォルダに入れる
-- **sample-slide はコピー元・確認用のサンプル。本番スライドを `sample-slide/` の中に入れない**
 - フォルダ名は小文字英数字・ハイフン区切りを推奨(URLになるため日本語・空白・大文字は使わない)
 - リンクはすべて相対パスで書く(ローカル絶対パスや `file:///` を残さない)
 - 文字コードはUTF-8(`<meta charset="UTF-8">` を必ず入れる)
 
 ## 新しいスライドを追加する手順
 
-1. `templates/simple-slide/` を `YYYY/MM/slide-name/` にコピーする
+1. `YYYY/MM/slide-name/` を作成する
    - 例: `2026/07/my-presentation/`
    - 月フォルダ(`YYYY/MM/`)がなければ作り、`index.html` も用意する
      (既存の月フォルダの `index.html` をコピーして書き換えると早い)
-2. コピーした `index.html` の `★ここを書き換える` 部分を書き換える
+2. 作成したフォルダに `index.html` と必要なCSS/JS/画像を入れる
 3. 月別一覧ページ `YYYY/MM/index.html` にリンクを追加する
 4. 新しい月を作った場合は、年別一覧ページ `YYYY/index.html` にもリンクを追加する
 5. コミットしてプッシュすると、以下のURLで公開される
@@ -64,6 +63,12 @@ slide-archive/
 役目を終えたスライドや、通常一覧から外したいスライドの移動先です。
 詳細は [archive/README.md](archive/README.md) を参照してください。
 **archiveに移しても公開されたままなので、非公開化の手段にはなりません。**
+
+## _local/ フォルダについて
+
+Git管理外のローカル作業置き場です。
+PPTX原本、生成プロンプト、作業メモ、履歴削除前のバックアップなど、公開リポジトリに入れないが手元に残したいファイルを置きます。
+`.gitignore` で除外されているため、GitHub Pagesには公開されません。
 
 ## GitHub Pages公開前提の注意
 
