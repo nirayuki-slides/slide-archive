@@ -28,6 +28,7 @@ class Slide:
     slug: str
     title: str
     description: str
+    href: str
 
 
 @dataclass(frozen=True)
@@ -111,16 +112,38 @@ def trim(text: str, limit: int = 120) -> str:
     return text[: limit - 1].rstrip() + "…"
 
 
+def find_entry_html(slide_dir: Path) -> Path | None:
+    """スライドフォルダ内から入口になるHTMLを探す。
+
+    index.html を最優先し、無ければ浅い階層のHTMLを採用する。
+    """
+    candidates = sorted(
+        (p for p in slide_dir.rglob("*.html") if p.is_file()),
+        key=lambda p: (
+            p.name.lower() != "index.html",
+            len(p.relative_to(slide_dir).parts),
+            str(p.relative_to(slide_dir)).lower(),
+        ),
+    )
+    return candidates[0] if candidates else None
+
+
 def read_slide(slide_dir: Path) -> Slide | None:
-    index_path = slide_dir / "index.html"
-    if not index_path.is_file():
+    entry_path = find_entry_html(slide_dir)
+    if entry_path is None:
         return None
 
     parser = MetadataParser()
     try:
-        parser.feed(index_path.read_text(encoding="utf-8"))
+        parser.feed(entry_path.read_text(encoding="utf-8"))
     except UnicodeDecodeError:
-        parser.feed(index_path.read_text(encoding="utf-8-sig"))
+        parser.feed(entry_path.read_text(encoding="utf-8", errors="replace"))
+
+    rel_parts = entry_path.relative_to(slide_dir.parent).parts
+    if entry_path.name.lower() == "index.html":
+        href = "/".join(href_segment(part) for part in rel_parts[:-1]) + "/"
+    else:
+        href = "/".join(href_segment(part) for part in rel_parts)
 
     title = parser.title or parser.h1 or title_from_slug(slide_dir.name)
     description = (
@@ -128,7 +151,7 @@ def read_slide(slide_dir: Path) -> Slide | None:
         or parser.og_description
         or f"{slide_dir.name}/ に置かれているHTMLスライド"
     )
-    return Slide(slug=slide_dir.name, title=title, description=trim(description))
+    return Slide(slug=slide_dir.name, title=title, description=trim(description), href=href)
 
 
 def find_month(month_dir: Path) -> Month:
@@ -343,7 +366,7 @@ def year_body(year: Year) -> str:
 
 def month_body(year: Year, month: Month) -> str:
     slide_items = [
-        (f"{href_segment(slide.slug)}/", slide.title, slide.description)
+        (slide.href, slide.title, slide.description)
         for slide in month.slides
     ]
     month_label = f"{int(month.slug)}月"
@@ -419,7 +442,7 @@ def archive_year_body(year: Year) -> str:
 
 def archive_month_body(year: Year, month: Month) -> str:
     slide_items = [
-        (f"{href_segment(slide.slug)}/", slide.title, slide.description)
+        (slide.href, slide.title, slide.description)
         for slide in month.slides
     ]
     month_label = f"{int(month.slug)}月"
