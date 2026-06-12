@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Slide Archive listing pages from the folder structure."""
+"""Generate yuki Slide Archive listing pages from the folder structure."""
 
 from __future__ import annotations
 
@@ -14,6 +14,8 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parents[1]
 YEAR_RE = re.compile(r"^\d{4}$")
 MONTH_RE = re.compile(r"^(0[1-9]|1[0-2])$")
+SITE_NAME = "yuki Slide Archive"
+SITE_DESCRIPTION = "共有用 html-slide_archive"
 
 GENERATED_COMMENT = (
     "<!-- このファイルは tools/generate_indexes.py が自動生成しています。"
@@ -90,7 +92,7 @@ def normalize(text: str) -> str:
 
 def clean_title(text: str) -> str:
     text = normalize(text)
-    text = re.sub(r"\s*[|｜]\s*Slide Archive\s*$", "", text)
+    text = re.sub(r"\s*[|｜]\s*(yuki Slide Archive|Slide Archive)\s*$", "", text)
     return text
 
 
@@ -233,7 +235,7 @@ def page(title: str, css_href: str, header_title: str, header_desc: str, body: s
   </main>
 
   <footer class="site-footer">
-    Slide Archive - 静的HTMLスライド置き場
+    {escape(SITE_NAME)} - 静的HTMLスライド置き場
   </footer>
   <script>
     (function() {{
@@ -449,10 +451,10 @@ def main() -> None:
     write(
         ROOT / "index.html",
         page(
-            "Slide Archive",
+            SITE_NAME,
             "assets/css/common.css",
-            "Slide Archive",
-            "共有用HTMLスライドのアーカイブです。",
+            SITE_NAME,
+            SITE_DESCRIPTION,
             root_body(years, archive_years),
         ),
     )
@@ -461,7 +463,7 @@ def main() -> None:
         write(
             ROOT / year.slug / "index.html",
             page(
-                f"{year.slug}年 | Slide Archive",
+                f"{year.slug}年 | {SITE_NAME}",
                 "../assets/css/common.css",
                 f"{year.slug}年",
                 f"{year.slug}年のスライド一覧(月別)",
@@ -472,7 +474,7 @@ def main() -> None:
             write(
                 ROOT / year.slug / month.slug / "index.html",
                 page(
-                    f"{year.slug}年{int(month.slug)}月 | Slide Archive",
+                    f"{year.slug}年{int(month.slug)}月 | {SITE_NAME}",
                     "../../assets/css/common.css",
                     f"{year.slug}年{int(month.slug)}月",
                     f"{year.slug}年{int(month.slug)}月のスライド一覧",
@@ -483,7 +485,7 @@ def main() -> None:
     write(
         ROOT / "archive" / "index.html",
         page(
-            "Archive | Slide Archive",
+            f"Archive | {SITE_NAME}",
             "../assets/css/common.css",
             "Archive",
             "古いスライド・通常一覧から外したフォルダの置き場です。",
@@ -495,7 +497,7 @@ def main() -> None:
         write(
             ROOT / "archive" / year.slug / "index.html",
             page(
-                f"Archive {year.slug}年 | Slide Archive",
+                f"Archive {year.slug}年 | {SITE_NAME}",
                 "../../assets/css/common.css",
                 f"Archive {year.slug}年",
                 f"{year.slug}年にアーカイブされたスライド一覧(月別)",
@@ -506,7 +508,7 @@ def main() -> None:
             write(
                 ROOT / "archive" / year.slug / month.slug / "index.html",
                 page(
-                    f"Archive {year.slug}年{int(month.slug)}月 | Slide Archive",
+                    f"Archive {year.slug}年{int(month.slug)}月 | {SITE_NAME}",
                     "../../../assets/css/common.css",
                     f"Archive {year.slug}年{int(month.slug)}月",
                     f"{year.slug}年{int(month.slug)}月にアーカイブされたスライド一覧",

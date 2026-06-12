@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-このリポジトリは、GitHub Pagesで公開する共有用HTMLスライドのアーカイブです。
+このリポジトリは、GitHub Pagesで公開する共有用 html-slide_archive です。
 
 - 公開URL: https://nirayuki-slides.github.io/slide-archive/
 - 詳しい運用ルールは README.md を参照

@@ -1,6 +1,6 @@
-# Slide Archive
+# yuki Slide Archive
 
-共有用HTMLスライドのアーカイブです。
+共有用 html-slide_archive
 学校課題・発表・企画共有などで使うHTMLスライドをこのリポジトリに集約します。
 
 - 公開URL: https://nirayuki-slides.github.io/slide-archive/
