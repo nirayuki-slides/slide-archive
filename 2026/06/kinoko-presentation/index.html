@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>きのこ派、勝利宣言</title>
+  <meta name="description" content="きのこ派による「きのこの山 vs たけのこの里」勝利宣言プレゼン。内容量・手の汚れにくさ・食べ方の自由度の3点から、日常で勝つのはきのこだと提案します。" />
+
+  <!-- ファビコン（きのこ派アイコン） -->
+  <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg" />
+
+  <!-- OGP / SNS共有用。共有先URLが確定したら og:url と og:image を「絶対URL」に差し替えると確実に表示されます -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="きのこ派、勝利宣言 ｜ 日常で勝つのは、きのこ。" />
+  <meta property="og:description" content="内容量・手の汚れにくさ・食べ方の自由度。3つの理由できのこ派を推すプレゼン資料です。" />
+  <meta property="og:image" content="images/slides/01_cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="deck" id="deck" aria-live="polite">
+    <header class="hud" aria-label="スライド操作">
+      <a class="brand" href="#cover" data-go="0" aria-label="キノコ派">
+        <img class="brand__generated" src="images/slides/brand_generated_logo_black.png" alt="" aria-hidden="true" />
+      </a>
+      <div class="hud__right">
+        <span class="counter" id="counter" aria-label="スライド 1 / 12">
+          <span class="counter__cur">01</span><span class="counter__sep">/</span><span class="counter__total">12</span>
+        </span>
+      </div>
+    </header>
+
+    <main class="slides">
+
+    <!-- ============ 01 / 表紙（強め：画像が主役） ============ -->
+    <section class="slide slide--cover" id="cover">
+      <img class="slide--cover__img"
+           src="images/slides/01_cover.png"
+           alt="きのこの山 VS たけのこの里。インク飛沫とランタンが並ぶフェス会場で、きのこ派とたけのこ派のキャラクターが対峙する表紙ビジュアル" />
+      <div class="cover__overlay">
+        <p class="cover__eyebrow">きのこ派、勝利宣言</p>
+        <h1 class="cover__copy">日々の日常に、きのこの山を</h1>
+        <p class="cover__lead">私たちは「きのこ派」として、「きのこの山」がなぜ「たけのこの里よりも優れているのか解説します。</p>
+        <p class="cover__hint" aria-hidden="true">▶ タップして発表スタート</p>
+      </div>
+    </section>
+
+    <!-- ============ 02 / 企画説明 ============ -->
+    <section class="slide slide--dark" id="intro">
+      <div class="wrap">
+        <p class="kicker kicker--mag">RULE / 企画説明</p>
+        <h2 class="h2 h2--keep">「きのこの山 vs たけのこの里」、<wbr>最後は投票で決める。<wbr></h2>
+        <div class="cards cards--3">
+          <div class="card">
+            <span class="card__no">01</span>
+            <h3 class="card__title">2つの陣営に分かれて対決</h3>
+            <p class="card__text">「きのこ派」と「たけのこ派」に分かれて、それぞれの魅力をプレゼンします。</p>
+          </div>
+          <div class="card">
+            <span class="card__no">02</span>
+            <h3 class="card__title">私たちは「きのこ派」</h3>
+            <p class="card__text">「きのこの山」が「たけのこの里」よりも優れている理由を発表します。</p>
+          </div>
+          <div class="card">
+            <span class="card__no">03</span>
+            <h3 class="card__title">勝敗は投票で決定！</h3>
+            <p class="card__text">最後に、皆さんの投票で、どちらの陣営の勝利か決着をつけます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 / 結論（3軸） ============ -->
+    <section class="slide slide--dark" id="conclusion">
+      <div class="wrap">
+        <p class="kicker kicker--mag">CONCLUSION / 結論</p>
+        <h2 class="h2">「きのこの山」が優れている理由3つ。</h2>
+        <div class="reasons">
+          <div class="reason">
+            <span class="reason__icon" aria-hidden="true">
+              <svg viewBox="0 0 96 96" role="img">
+                <g fill="#c8ff00">
+                  <path d="M48 9 C63 9 83 16 86 36 C89 53 80 65 71 75 C61 86 41 89 28 81 C13 72 7 56 11 39 C15 21 33 9 48 9 Z"/>
+                  <circle cx="14" cy="16" r="3.2"/><circle cx="85" cy="17" r="4"/><circle cx="89" cy="57" r="2.6"/>
+                  <circle cx="18" cy="85" r="3.4"/><circle cx="77" cy="87" r="2.4"/><circle cx="8" cy="62" r="2"/>
+                </g>
+                <path d="M30 50 C30 36 38 28 48 28 C58 28 66 36 66 50 Z" fill="#3a2415"/>
+                <rect x="43" y="49" width="10" height="18" rx="5" fill="#f1e9d8"/>
+                <circle cx="46" cy="56" r="1" fill="#7a5a3a"/><circle cx="50" cy="61" r="0.9" fill="#7a5a3a"/>
+                <path d="M73 13 L80 22 H75.5 V29 H70.5 V22 H66 Z" fill="#fff"/>
+              </svg>
+            </span>
+            <h3 class="reason__title">内容量が多い</h3>
+            <p class="reason__text">同価格帯なら、4.8%も「たけのこの里」よりも多く含まれている。</p>
+          </div>
+          <div class="reason">
+            <span class="reason__icon" aria-hidden="true">
+              <svg viewBox="0 0 96 96" role="img">
+                <g fill="#ff2ca8">
+                  <path d="M48 9 C63 9 83 16 86 36 C89 53 80 65 71 75 C61 86 41 89 28 81 C13 72 7 56 11 39 C15 21 33 9 48 9 Z"/>
+                  <circle cx="14" cy="16" r="3.2"/><circle cx="85" cy="17" r="4"/><circle cx="89" cy="57" r="2.6"/>
+                  <circle cx="18" cy="85" r="3.4"/><circle cx="77" cy="87" r="2.4"/><circle cx="8" cy="62" r="2"/>
+                </g>
+                <path d="M30 50 C30 36 38 28 48 28 C58 28 66 36 66 50 Z" fill="#3a2415"/>
+                <rect x="43" y="49" width="10" height="18" rx="5" fill="#f1e9d8"/>
+                <circle cx="46" cy="56" r="1" fill="#7a5a3a"/><circle cx="50" cy="61" r="0.9" fill="#7a5a3a"/>
+                <g fill="#fff">
+                  <path transform="translate(26 28)" d="M0 -6 Q1 -1 6 0 Q1 1 0 6 Q-1 1 -6 0 Q-1 -1 0 -6 Z"/>
+                  <path transform="translate(71 31) scale(0.8)" d="M0 -6 Q1 -1 6 0 Q1 1 0 6 Q-1 1 -6 0 Q-1 -1 0 -6 Z"/>
+                  <path transform="translate(70 66) scale(0.7)" d="M0 -6 Q1 -1 6 0 Q1 1 0 6 Q-1 1 -6 0 Q-1 -1 0 -6 Z"/>
+                </g>
+              </svg>
+            </span>
+            <h3 class="reason__title">手が汚れない</h3>
+            <p class="reason__text">「たけのこの里」は粉々している。「きのこの山」は持ち手が存在する。</p>
+          </div>
+          <div class="reason">
+            <span class="reason__icon" aria-hidden="true">
+              <svg viewBox="0 0 96 96" role="img">
+                <g fill="#e08a2c">
+                  <path d="M48 9 C63 9 83 16 86 36 C89 53 80 65 71 75 C61 86 41 89 28 81 C13 72 7 56 11 39 C15 21 33 9 48 9 Z"/>
+                  <circle cx="14" cy="16" r="3.2"/><circle cx="85" cy="17" r="4"/><circle cx="89" cy="57" r="2.6"/>
+                  <circle cx="18" cy="85" r="3.4"/><circle cx="77" cy="87" r="2.4"/><circle cx="8" cy="62" r="2"/>
+                </g>
+                <path d="M30 44 C30 31 38 23 48 23 C58 23 66 31 66 44 Z" fill="#3a2415"/>
+                <rect x="43" y="53" width="10" height="17" rx="5" fill="#f1e9d8"/>
+                <circle cx="46" cy="60" r="1" fill="#7a5a3a"/><circle cx="50" cy="65" r="0.9" fill="#7a5a3a"/>
+                <g fill="#fff">
+                  <circle cx="40" cy="49" r="1.3"/><circle cx="48" cy="49" r="1.3"/><circle cx="56" cy="49" r="1.3"/>
+                </g>
+              </svg>
+            </span>
+            <h3 class="reason__title">食べ方の自由度
+            </h3>
+            <p class="reason__text">チョコとクラッカーを分解したり、作業の合間に手を汚さずに楽しめる。</p>
+          </div>
+        </div>
+        <p class="note">この3つを、次のスライドから順番に見ていきます。</p>
+      </div>
+    </section>
+
+    <!-- ============ 04 / 内容量比較（中程度：画像＋注釈） ============ -->
+    <section class="slide slide--dark" id="amount">
+      <div class="wrap">
+        <p class="kicker">REASON 01 / 内容量</p>
+        <h2 class="h2">内容量は、「きのこ派」が一歩リード。</h2>
+        <div class="media media--centered media--amount">
+          <img class="media__img media__img--contain"
+               src="images/slides/02_amount_compare.png"
+               alt="容量比較ボード。画像内では約4.8%多いと表示され、棒グラフはたけのこ95.2%・きのこ100%で、きのこ側が内容量で多いことを示している" />
+          <div class="media__side">
+            <div class="factbox" aria-label="内容量比較の正本表記">
+              <span class="factbox__label">資料本文の正本表記</span>
+              <strong class="factbox__value" data-count="4.8" data-count-decimals="1" data-count-prefix="約" data-count-suffix="%多い">約4.8%多い</strong>
+              <p>66gと63gの差分3gを、たけのこの里基準で計算しています。</p>
+            </div>
+            <ul class="speclist">
+              <li><strong>きのこの山 66g</strong> / たけのこの里 63g で比較</li>
+              <li>たけのこの里を基準にすると、差分3gは<strong>約4.76%</strong>（資料表記：<strong>約4.8%多い</strong>）</li>
+              <li>同価格帯で比べると、内容量ではきのこが有利</li>
+            </ul>
+            <p class="footnote">※価格は店舗・時期により変動します。比較条件は上記グラム数を前提としています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 / 手が汚れにくい（説明寄り：画像を大きく） ============ -->
+    <section class="slide slide--dark" id="clean">
+      <div class="wrap">
+        <p class="kicker">REASON 02 / 実用性</p>
+        <h2 class="h2">持てる。それだけで、強い。</h2>
+        <div class="media media--stack">
+          <div class="media__frame">
+            <img class="media__img media__img--cover"
+                 src="images/slides/03_grip_splat.png"
+                 alt="きのこのクラッカー部分を指で持つ様子を、インク飛沫で表現したスプラフェス風ビジュアル" />
+          </div>
+          <p class="media__caption">クラッカー部分を持てるから、<strong>PC・ノート・コントローラーを汚さない。</strong>作業の手を止めずにつまめます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 / 食べ方の自由度（中程度：図解が主役） ============ -->
+    <section class="slide slide--dark" id="style">
+      <div class="wrap">
+        <p class="kicker">REASON 03 / 食べ方</p>
+        <div class="media media--split">
+          <div class="media__side">
+            <h2 class="h2 h2--tight">食べ方も、戦術。</h2>
+            <ul class="speclist">
+              <li>チョコだけ先に食べる</li>
+              <li>クラッカー部分を持つ</li>
+              <li>分けて楽しめる</li>
+            </ul>
+            <p class="note">ただ食べるだけじゃない。きのこならではの遊び心があります。</p>
+          </div>
+          <img class="media__img media__img--contain"
+               src="images/slides/04_eating_style.png"
+               alt="きのこの山を分解した図解。チョコ部分を先に食べる、クラッカー部分を握って持つ、形を変えて自由に食べる、という食べ方の自由度を示す" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 / ターゲット（中程度：上位概念でまとめる） ============ -->
+    <section class="slide slide--dark" id="target">
+      <div class="wrap">
+        <p class="kicker kicker--cyan">TARGET / 刺さる相手</p>
+        <div class="media media--split">
+          <img class="media__img media__img--contain"
+               src="images/slides/07_target_scene.png"
+               alt="PC作業中に片手でトラックパッドを操作しながら、もう片方の手できのこのクラッカー部分をつまんで食べるスプラフェス風ビジュアル" />
+          <div class="media__side">
+            <h2 class="h2 target__heading h2--keep">ねらいは<wbr>「作業中に<wbr>お菓子を<wbr>食べたい人」。</h2>
+            <p class="lead">学生も社会人も、立場に関係なく、同じ「手を止めずに食べたい」気持ちに寄り添います。</p>
+            <ul class="chips">
+              <li class="chip">試験勉強に励む学生</li>
+              <li class="chip">PC業務に励む社会人</li>
+              <li class="chip">ゲームプレイを楽しむ人</li>
+              <li class="chip">ノートや紙を触る機会の多い人</li>
+              <li class="chip">手を汚したくない人</li>
+              <li class="chip">少しでも量が多い方がうれしい人</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 / たけのこの弱点（煽りすぎない） ============ -->
+    <section class="slide slide--dark" id="weakness">
+      <div class="wrap">
+        <p class="kicker kicker--cyan">COMPARE / 実用面</p>
+        <h2 class="h2">実用面で見ても、きのこが有利。</h2>
+        <table class="compare">
+          <caption class="compare__cap">同じシーンで比べたときの使いやすさ</caption>
+          <thead>
+            <tr><th scope="col">観点</th><th scope="col">きのこの山</th><th scope="col">たけのこの里</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">手の汚れにくさ</th><td class="win">持てるので汚れない</td><td>汚れやすい</td></tr>
+            <tr><th scope="row">粉っぽさ</th><td class="win">ほとんどなし</td><td>粉っぽさがある</td></tr>
+            <tr><th scope="row">持ちやすさ</th><td class="win">クラッカーの持ち手を握れる</td><td>持てる場所がない</td></tr>
+          </tbody>
+        </table>
+        <p class="footnote">※味の好みは人それぞれ。ここでは「作業中の使いやすさ」という実用面に絞って比較しています。</p>
+      </div>
+    </section>
+
+    <!-- ============ 09 / ロゴ案（本番画像：ワードマーク主役＋マスコット補助） ============ -->
+    <section class="slide slide--dark" id="logo">
+      <div class="wrap">
+        <p class="kicker kicker--cyan">SYMBOL / ロゴ案</p>
+        <h2 class="h2 h2--tight">きのこ派の、陣営シンボル。</h2>
+        <div class="logo">
+          <img class="logo__wordmark"
+               src="images/slides/05_logo_wordmark.png"
+               alt="きのこの山をモチーフにした横長ロゴ。チョコとクラッカーの質感で「きのこの山」と象られたワードマーク" />
+          <div class="logo__aside">
+            <div class="logo__mascot-card">
+              <img class="logo__mascot"
+                   src="images/slides/05_logo_mascot.png"
+                   alt="きのこの山をモチーフにしたマスコットキャラクター。チョコの傘とクラッカーの胴体でポーズをとっている" />
+            </div>
+            <p class="logo__text">ロゴは、きのこ派の雰囲気や陣営感を一目で伝えるためのもの。マスコットは親しみやすさを添える補助役。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10 / SNS案（導線説明：縦長広告カード） ============ -->
+    <section class="slide slide--dark" id="sns">
+      <div class="wrap">
+        <div class="media media--split media--sns">
+          <img class="media__img media__img--contain media__img--portrait"
+               src="images/slides/06_sns_ad.png"
+               alt="きのこ派への投票を促す縦長SNS広告案。フェス看板に「きのこ派のインクの準備完了！」とあり、ハッシュタグ付きの告知ビジュアル" />
+          <div class="media__side">
+            <p class="kicker kicker--cyan">PROMOTION / SNS案</p>
+            <h2 class="h2 h2--tight h2--keep">投票前に、<wbr>印象を残す。</h2>
+            <h3 class="card__title">きのこ派を広める投稿案</h3>
+            <ul class="speclist">
+              <li><strong>狙い</strong>：投票前に印象を残す</li>
+              <li><strong>内容</strong>：フェス告知風の広告ビジュアル</li>
+              <li><strong>つなげ方</strong>：当日の投票へ意識を向けてもらう</li>
+            </ul>
+            <p class="footnote">※SNS広告案としての演出です。公式ゲームの広告ではありません。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11 / まとめ（HTML/CSS演出） ============ -->
+    <section class="slide slide--vote" id="summary">
+      <div class="wrap">
+        <p class="kicker kicker--mag">FINAL / まとめ</p>
+        <h2 class="h2 h2--center">日常で勝つのは、きのこ。</h2>
+        <ul class="recap" aria-label="きのこ派の理由まとめ">
+          <li class="recap__item">
+            <img class="recap__icon" src="images/icons/icon-amount.svg" alt="" aria-hidden="true" />
+            <span class="recap__no" data-count="1" data-count-pad="2">01</span>
+            <span class="recap__text">内容量でリード</span>
+          </li>
+          <li class="recap__item">
+            <img class="recap__icon" src="images/icons/icon-clean.svg" alt="" aria-hidden="true" />
+            <span class="recap__no" data-count="2" data-count-pad="2">02</span>
+            <span class="recap__text">手が汚れない</span>
+          </li>
+          <li class="recap__item">
+            <img class="recap__icon" src="images/icons/icon-style.svg" alt="" aria-hidden="true" />
+            <span class="recap__no" data-count="3" data-count-pad="2">03</span>
+            <span class="recap__text">食べ方の自由度</span>
+          </li>
+        </ul>
+        <p class="summary-note">この3点から、日常の使いやすさでは「きのこの里」を推します。</p>
+      </div>
+    </section>
+
+    <!-- ============ 12 / ご清聴ありがとうございました ============ -->
+    <section class="slide slide--thanks" id="thanks">
+      <canvas class="finale-confetti" id="finaleConfetti" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div class="finale" aria-label="発表の締め">
+          <div class="finale__copy">
+            <p class="finale__label">THANK YOU</p>
+            <p class="finale__thanks">ご清聴ありがとうございました♪</p>
+            <p class="finale__prompt">キノコ派に清き一票お願いします！</p>
+            <div class="finale__vote-card" aria-label="投票のお願い">
+              <span class="finale__vote-kicker">PLEASE VOTE</span>
+              <p class="finale__vote-main">最後の一票は、きのこ派へ。</p>
+              <p class="finale__vote-sub">内容量・手の汚れにくさ・食べ方の自由度で、どれをとっても最適な選択です。</p>
+            </div>
+          </div>
+          <img class="finale__lazy-character"
+               src="images/slides/sns_lazy_character.png"
+               alt="横になってきのこチョコを食べる、ぐーたらポーズのきのこ派キャラクター" />
+          <div class="finale__mascot-talk">
+            <p class="speech">
+              <strong>あなたはきのこ派？</strong>
+              <strong>それともたけのこ派？</strong>
+            </p>
+            <img class="finale__mascot"
+                 src="images/slides/05_logo_mascot_cutout.png"
+                 alt="きのこの山をモチーフにしたマスコットキャラクター" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    </main>
+
+    <!-- 案1：スライド切替時にクリック地点から広がるインク塗り替えレイヤー -->
+    <div class="ink-wipe" id="inkWipe" aria-hidden="true"></div>
+
+    <div class="presentation-cursor" id="presentationCursor" aria-hidden="true"></div>
+    <div class="nav-buttons">
+      <button class="hud__btn" type="button" id="prevBtn" aria-label="前のスライド">‹</button>
+      <button class="hud__btn" type="button" id="nextBtn" aria-label="次のスライド">›</button>
+    </div>
+    <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+    <p class="help">クリック / タップ / Space / Enter / ← → で操作</p>
+    <!-- アーカイブ用の戻るリンク(左下固定・既存UIと重ならない位置) -->
+    <p style="position:fixed; left:16px; bottom:16px; z-index:20; margin:0; padding:5px 14px; border-radius:999px; background:rgba(16,12,20,0.42); backdrop-filter:blur(4px); font-size:12px;">
+      <a href="../" style="color:#fff; text-decoration:none;">← 一覧へ戻る</a>
+    </p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

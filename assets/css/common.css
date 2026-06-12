@@ -1,0 +1,178 @@
+/* ==========================================================
+   common.css — Slide Archive 共通スタイル
+   ルート / 年別 / 月別 / テンプレート / スライドで共通利用する
+   ========================================================== */
+
+:root {
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-text: #1f2933;
+  --color-text-sub: #5b6b7b;
+  --color-accent: #2563ab;
+  --color-border: #d9e0e8;
+  --max-width: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+/* ----- レイアウト ----- */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+header.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.25rem 1rem;
+}
+
+header.site-header h1 {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-size: 1.4rem;
+}
+
+header.site-header p {
+  max-width: var(--max-width);
+  margin: 0.25rem auto 0;
+  color: var(--color-text-sub);
+  font-size: 0.95rem;
+}
+
+footer.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+  color: var(--color-text-sub);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ----- 見出し ----- */
+
+h2 {
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* ----- リンク ----- */
+
+a {
+  color: var(--color-accent);
+}
+
+/* カード風リンク一覧 */
+ul.card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.card-list li {
+  margin: 0 0 0.75rem;
+}
+
+ul.card-list a {
+  display: block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+ul.card-list a:hover,
+ul.card-list a:focus {
+  border-color: var(--color-accent);
+  background: #eef4fb;
+}
+
+ul.card-list .card-title {
+  display: block;
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+ul.card-list .card-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+}
+
+/* ----- パンくず・戻るリンク ----- */
+
+nav.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-bottom: 1rem;
+}
+
+nav.breadcrumb a {
+  color: var(--color-text-sub);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+/* ----- スライド用 ----- */
+
+.slide-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.slide-section h2 {
+  margin-top: 0;
+}
+
+.slide-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ----- スマホ対応 ----- */
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 1rem 0.75rem 3rem;
+  }
+
+  .slide-section {
+    padding: 1.1rem 0.9rem;
+  }
+}

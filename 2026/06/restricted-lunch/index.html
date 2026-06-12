@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米1合でも満足できる 豆腐入り大判つくね定食</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="deck-header" aria-label="スライド内ナビゲーション">
+    <a class="deck-header__brand" href="#cover">豆腐入り大判つくね定食</a>
+    <nav class="deck-nav" aria-label="セクション">
+      <a href="#cover" data-nav="cover">表紙</a>
+      <a href="#conditions" data-nav="conditions">条件</a>
+      <a href="#persona" data-nav="persona">ターゲット</a>
+      <a href="#changes" data-nav="changes">変更</a>
+      <a href="#concept" data-nav="concept">設計</a>
+      <a href="#menu" data-nav="menu">献立</a>
+      <a href="#materials" data-nav="materials">材料</a>
+      <a href="#budget" data-nav="budget">予算</a>
+      <a href="#review" data-nav="review">評価</a>
+      <a href="#decision" data-nav="decision">判断</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="slide slide--cover" id="cover" data-slide>
+      <div class="slide__inner hero-layout">
+        <div class="hero-copy">
+          <p class="slide__label">01 / Cover</p>
+          <h1 class="slide__title">米1合でも満足できる<br>体育会系大学生向けランチセット</h1>
+          <p class="hero-name">豆腐入り大判つくね定食</p>
+          <p class="slide__lead">ご飯量に頼らず、大判つくね・副菜・具だくさん味噌汁で昼食として成立させる学食定食。</p>
+          <div class="tag-list" aria-label="企画条件">
+            <span class="tag">4人前</span>
+            <span class="tag">2,200円以内</span>
+            <span class="tag">1人545円</span>
+            <span class="tag">揚げ物なし</span>
+            <span class="tag">たんぱく質重視</span>
+            <span class="tag">米1合対応</span>
+          </div>
+        </div>
+        <figure class="image-frame image-frame--hero">
+          <img src="assets/images/01_meal-set.png" alt="学食トレーに豆腐入り大判甘辛つくね、小盛りご飯、レタスと大根とにんじんの副菜、豆腐と油揚げと大根の味噌汁を並べた定食">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="conditions" data-slide>
+      <div class="slide__inner">
+        <p class="slide__label">02 / Conditions</p>
+        <h2 class="slide__title">今回の課題条件</h2>
+        <p class="slide__lead">自由に足す献立ではなく、人数・予算・米量・材料条件の中で成立させる企画。</p>
+        <div class="metric-grid">
+          <article class="metric-card">
+            <span class="metric-card__eyebrow">予算上限</span>
+            <strong>2,200円</strong>
+            <span>調味料・水道光熱費込み</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-card__eyebrow">1人あたり</span>
+            <strong>545円</strong>
+            <span>金欠学生向けの価格帯</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-card__eyebrow">主食</span>
+            <strong>米1合</strong>
+            <span>4人で分ける小盛りご飯</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-card__eyebrow">主材料</span>
+            <strong>600g以上</strong>
+            <span>鶏ひき肉の使用条件</span>
+          </article>
+        </div>
+        <div class="info-grid info-grid--compact">
+          <div class="info-card">
+            <b>4人前</b>
+            <span>ランチセットとして4人分で設計する。</span>
+          </div>
+          <div class="info-card">
+            <b>追加食材なし</b>
+            <span>使える材料と調味料の中で調整する。</span>
+          </div>
+          <div class="info-card">
+            <b>昼食として成立</b>
+            <span>満足感・ボリューム感・食べやすさを両立する。</span>
+          </div>
+          <div class="info-card">
+            <b>費用込み</b>
+            <span>調味料費と水道光熱費も予算内に含める。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--green" id="persona" data-slide>
+      <div class="slide__inner two-column two-column--persona">
+        <div>
+          <p class="slide__label">03 / Persona</p>
+          <h2 class="slide__title">想定ターゲット</h2>
+          <p class="slide__lead">金欠で運動量が多く、たんぱく質と満腹感を欲しい体育会系大学生。</p>
+          <article class="persona-card">
+            <img class="persona-card__photo" src="assets/images/03_persona.png" alt="サッカー部の大学生を想定した男性ペルソナ画像">
+            <div>
+              <h3>18歳・大学1年生</h3>
+              <p>身長178cm / 体重68kg / サッカー部</p>
+              <ul class="plain-list">
+                <li>学食利用が多い</li>
+                <li>金欠</li>
+                <li>運動後にお腹いっぱいになりたい</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div class="split-stack">
+          <article class="info-card info-card--large">
+            <span class="card-kicker">悩み</span>
+            <ul class="check-list">
+              <li>たんぱく質を取りたい</li>
+              <li>栄養は気になるが、考えるのは面倒</li>
+              <li>揚げ物は避けたい</li>
+              <li>予算は抑えたい</li>
+            </ul>
+          </article>
+          <article class="info-card info-card--large">
+            <span class="card-kicker">求めること</span>
+            <ul class="check-list">
+              <li>545円でも納得できる量感</li>
+              <li>部活前後でも食べやすい和風定食</li>
+              <li>肉・豆腐・野菜・汁物のバランス</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="changes" data-slide>
+      <div class="slide__inner">
+        <p class="slide__label">04 / Changes</p>
+        <h2 class="slide__title">条件変更で起きた課題</h2>
+        <p class="slide__lead">米と予算が厳しくなったため、ご飯量ではなく定食全体で満足感を作る。</p>
+        <div class="before-after">
+          <article class="change-card change-card--before">
+            <span class="card-kicker">Before</span>
+            <ul class="change-list">
+              <li><span>米</span><b>2合</b></li>
+              <li><span>予算</span><b>3,000円以内</b></li>
+              <li><span>野菜</span><b>キャベツ使用想定</b></li>
+            </ul>
+          </article>
+          <div class="change-arrow" aria-label="制約に合わせて再設計">制約に合わせて再設計</div>
+          <article class="change-card change-card--after">
+            <span class="card-kicker">After</span>
+            <ul class="change-list">
+              <li><span>米</span><b>1合</b></li>
+              <li><span>予算</span><b>2,200円以内</b></li>
+              <li><span>野菜</span><b>レタス代替</b></li>
+            </ul>
+          </article>
+        </div>
+        <div class="message-strip">
+          <b>ご飯で満腹にする作戦は使えない。</b>
+          <span>主菜・副菜・味噌汁で補う設計に切り替える。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--concept" id="concept" data-slide>
+      <div class="slide__inner concept-layout">
+        <p class="slide__label">05 / Concept</p>
+        <h2 class="slide__title">ご飯量に頼らない定食設計</h2>
+        <p class="concept-statement">米1合でも、主菜・副菜・味噌汁の役割を分けて満足感を作る。</p>
+        <div class="concept-grid" aria-label="企画を支える要素">
+          <article class="concept-card">
+            <span>たんぱく質</span>
+            <b>鶏ひき肉650g＋豆腐＋油揚げ</b>
+          </article>
+          <article class="concept-card">
+            <span>野菜量</span>
+            <b>レタス・大根・にんじんで補う</b>
+          </article>
+          <article class="concept-card">
+            <span>満足感</span>
+            <b>大判つくねと具だくさん味噌汁</b>
+          </article>
+          <article class="concept-card">
+            <span>低予算</span>
+            <b>固定予算2,180円で成立</b>
+          </article>
+        </div>
+        <div class="tag-list tag-list--center">
+          <span class="tag">ご飯量に頼らない</span>
+          <span class="tag">揚げ物なし</span>
+          <span class="tag">部活前後でも食べやすい</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="menu" data-slide>
+      <div class="slide__inner two-column two-column--menu">
+        <figure class="image-frame">
+          <img src="assets/images/01_meal-set.png" alt="豆腐入り大判甘辛つくね、小盛りご飯、レタスと大根とにんじんの副菜、豆腐と油揚げと大根の味噌汁を並べた最終献立">
+        </figure>
+        <div>
+          <p class="slide__label">06 / Menu</p>
+          <h2 class="slide__title">最終献立</h2>
+          <p class="slide__lead">主菜・副菜・汁物・主食がそろった、現実的な学食定食。</p>
+          <div class="menu-list">
+            <article class="menu-card">
+              <span>主菜</span>
+              <b>豆腐入り大判甘辛つくね</b>
+              <p>鶏ひき肉と豆腐で、たんぱく質と食べ応えを確保する。</p>
+            </article>
+            <article class="menu-card">
+              <span>副菜</span>
+              <b>レタス・大根・にんじんのさっぱり和え</b>
+              <p>野菜量、さっぱり感、見た目のボリュームを補う。</p>
+            </article>
+            <article class="menu-card">
+              <span>汁物</span>
+              <b>豆腐・油揚げ・大根の具だくさん味噌汁</b>
+              <p>米不足を補う満腹感と、たんぱく質補助を担う。</p>
+            </article>
+            <article class="menu-card">
+              <span>主食</span>
+              <b>米1合の小盛りご飯</b>
+              <p>主食として最低限添え、定食として成立させる。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--green" id="materials" data-slide>
+      <div class="slide__inner">
+        <p class="slide__label">07 / Materials</p>
+        <h2 class="slide__title">材料配分</h2>
+        <p class="slide__lead">鶏ひき肉600g以上を守りながら、主菜・副菜・味噌汁へ役割ごとに分ける。</p>
+        <div class="materials-layout">
+          <figure class="image-frame image-frame--materials">
+            <img src="assets/images/02_materials.png" alt="米1合、鶏ひき肉、豆腐、レタス、大根、にんじん、油揚げ、調味料を並べた材料整理用画像">
+          </figure>
+          <div class="material-summary">
+            <div><b>鶏ひき肉</b><span>650g</span></div>
+            <div><b>豆腐</b><span>2丁</span></div>
+            <div><b>米</b><span>1合</span></div>
+            <div><b>レタス</b><span>副菜に使用</span></div>
+            <div><b>油揚げ</b><span>味噌汁に使用</span></div>
+            <div><b>卵</b><span>使用しない</span></div>
+          </div>
+        </div>
+        <div class="recipe-grid">
+          <article class="recipe-card">
+            <span>大判つくね</span>
+            <p>鶏ひき肉650g、豆腐1丁、玉ねぎ2個、にんじん1/2本、調味料</p>
+          </article>
+          <article class="recipe-card">
+            <span>副菜</span>
+            <p>レタス1/2〜1玉、大根1/2本、にんじん1本、ポン酢など</p>
+          </article>
+          <article class="recipe-card">
+            <span>味噌汁</span>
+            <p>豆腐1丁、油揚げ4枚、大根1/2本、調味料</p>
+          </article>
+          <article class="recipe-card">
+            <span>主食</span>
+            <p>米1合</p>
+          </article>
+          <article class="recipe-card recipe-card--muted">
+            <span>未使用</span>
+            <p>卵。使い切り目的で無理に入れない。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="budget" data-slide>
+      <div class="slide__inner">
+        <p class="slide__label">08 / Budget</p>
+        <h2 class="slide__title">固定予算</h2>
+        <p class="slide__lead">調味料・水道光熱費込みで、合計2,180円、1人545円に収める。</p>
+        <div class="budget-top">
+          <article class="metric-card metric-card--wide">
+            <span class="metric-card__eyebrow">合計</span>
+            <strong>2,180円</strong>
+            <span>上限2,200円以内</span>
+          </article>
+          <article class="metric-card metric-card--wide">
+            <span class="metric-card__eyebrow">1人あたり</span>
+            <strong>545円</strong>
+            <span>4人前で計算</span>
+          </article>
+          <article class="metric-card metric-card--wide">
+            <span class="metric-card__eyebrow">残り</span>
+            <strong>20円</strong>
+            <span>かなりギリギリの設計</span>
+          </article>
+        </div>
+        <div class="budget-bar" aria-label="予算上限2,200円に対して使用額2,180円">
+          <div class="budget-bar__track">
+            <div class="budget-bar__fill" style="width: 99.1%;"></div>
+          </div>
+          <div class="budget-bar__labels">
+            <span>使用 2,180円</span>
+            <span>上限 2,200円</span>
+          </div>
+        </div>
+        <div class="budget-table" role="table" aria-label="固定予算内訳">
+          <div class="budget-row budget-row--head" role="row">
+            <span role="columnheader">項目</span>
+            <span role="columnheader">金額</span>
+          </div>
+          <div class="budget-row" role="row"><span role="cell">鶏ひき肉650g</span><b role="cell">830円</b></div>
+          <div class="budget-row" role="row"><span role="cell">米1合</span><b role="cell">90円</b></div>
+          <div class="budget-row" role="row"><span role="cell">絹豆腐2丁</span><b role="cell">200円</b></div>
+          <div class="budget-row" role="row"><span role="cell">玉ねぎ2個</span><b role="cell">120円</b></div>
+          <div class="budget-row" role="row"><span role="cell">にんじん2本</span><b role="cell">120円</b></div>
+          <div class="budget-row" role="row"><span role="cell">大根1本</span><b role="cell">180円</b></div>
+          <div class="budget-row" role="row"><span role="cell">レタス1/2〜1玉</span><b role="cell">180円</b></div>
+          <div class="budget-row" role="row"><span role="cell">油揚げ4枚</span><b role="cell">120円</b></div>
+          <div class="budget-row" role="row"><span role="cell">調味料</span><b role="cell">220円</b></div>
+          <div class="budget-row" role="row"><span role="cell">水道光熱費</span><b role="cell">120円</b></div>
+          <div class="budget-row budget-row--total" role="row"><span role="cell">合計</span><b role="cell">2,180円</b></div>
+          <div class="budget-row budget-row--total" role="row"><span role="cell">1人あたり</span><b role="cell">545円</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--review" id="review" data-slide>
+      <div class="slide__inner two-column two-column--review">
+        <div>
+          <p class="slide__label">09 / Review</p>
+          <h2 class="slide__title">AI大学生による仮試食</h2>
+          <p class="slide__lead">AIペルソナによる仮評価。米は少ないが、価格・たんぱく質・揚げ物なしの点で合う。</p>
+          <article class="quote-card">
+            <img class="quote-card__photo" src="assets/images/03_persona.png" alt="AI大学生レビューの話者として使うサッカー部大学生のペルソナ画像">
+            <blockquote>
+              ご飯は少なめだけど、つくねが大きいからメインを食べた感じはある。<br>
+              味噌汁に豆腐と油揚げが入っているのは助かる。<br>
+              運動後なら本音ではご飯はもう少し欲しい。<br>
+              でも545円ならかなりあり。<br>
+              揚げ物じゃないから部活前後でも食べやすい。
+            </blockquote>
+            <p>AIペルソナによる仮評価</p>
+          </article>
+        </div>
+        <div class="rating-grid">
+          <article class="rating-card"><b>価格</b><span>◎</span><p>1人545円なら金欠学生向けに強い</p></article>
+          <article class="rating-card"><b>たんぱく質</b><span>○</span><p>鶏ひき肉650g＋豆腐＋油揚げで補える</p></article>
+          <article class="rating-card"><b>満腹感</b><span>○</span><p>米は少ないが、つくねと味噌汁で補える</p></article>
+          <article class="rating-card"><b>運動部向け</b><span>○</span><p>揚げ物ではなく、部活前後でも食べやすい</p></article>
+          <article class="rating-card"><b>栄養バランス</b><span>○</span><p>肉・豆腐・野菜・味噌汁で説明しやすい</p></article>
+          <article class="rating-card rating-card--weak"><b>弱点</b><span>△</span><p>運動後の空腹には米1合が少なく見える</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--decision" id="decision" data-slide>
+      <div class="slide__inner">
+        <p class="slide__label">10 / Decision</p>
+        <h2 class="slide__title">採用理由と次工程</h2>
+        <div class="decision-hero">
+          <span>採用</span>
+          <strong>豆腐入り大判つくね定食</strong>
+          <p>米1合・固定予算2,180円の中で、主菜・副菜・味噌汁が役割を分けられる案。</p>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card">
+            <b>そぼろ案</b>
+            <p>米1合では主食依存が弱いため不採用。</p>
+          </article>
+          <article class="decision-card">
+            <b>中華スープ案</b>
+            <p>和風定食の軸から外れるため不採用。</p>
+          </article>
+          <article class="decision-card">
+            <b>卵</b>
+            <p>無理に使わない。今回は使用しない。</p>
+          </article>
+          <article class="decision-card">
+            <b>揚げ物</b>
+            <p>ターゲット条件に合わないため不採用。</p>
+          </article>
+        </div>
+        <p class="closing-message">限られた米と予算の中で、主菜・副菜・味噌汁の役割を分け、体育会系学生が選びやすい現実的な学食定食としてまとめた。</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- アーカイブ用の戻るリンク(スライド本体のデザインには関与しない) -->
+  <footer style="text-align:center; padding:1.25rem 0 2rem; font-size:0.85rem; opacity:0.75;">
+    <a href="../" style="color:inherit;">← 2026年6月のスライド一覧へ戻る</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Node (使わない前提だが念のため)
+node_modules/
+dist/
+
+# Env / logs
+.env
+*.log
+
+# 個人名を含む作業メモ(公開しない・ローカルには残す)
+2026/06/restricted-lunch/*.txt
