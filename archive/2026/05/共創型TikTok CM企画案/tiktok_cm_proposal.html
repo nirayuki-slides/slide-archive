@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>共創型TikTok CM企画案</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --paper: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --line: #dddddd;
+      --accent: #111111;
+      --accent-soft: #f0f0ec;
+      --blue: #3b6ef0;
+      --blue-soft: #eaf0ff;
+      --pink: #e85a96;
+      --pink-soft: #ffeaf3;
+      --radius: 18px;
+      --shadow: 0 14px 40px rgba(0,0,0,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f7f7f4 0%, #ecece6 100%);
+      line-height: 1.8;
+      letter-spacing: .02em;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 56px 20px 72px;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "#";
+      position: absolute;
+      right: 34px;
+      bottom: -36px;
+      font-size: 180px;
+      line-height: 1;
+      color: rgba(0,0,0,.05);
+      font-weight: 800;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fafafa;
+    }
+
+    h1 {
+      margin: 22px 0 16px;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.18;
+      letter-spacing: .01em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      font-size: 18px;
+      color: #333333;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .summary-card {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      border: 1px solid var(--line);
+    }
+
+    .summary-card span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .summary-card strong {
+      font-size: 18px;
+    }
+
+    section {
+      margin-top: 32px;
+      padding: 34px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.04);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      font-size: 19px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul, ol {
+      margin: 0;
+      padding-left: 1.35em;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      counter-reset: flow;
+      margin-top: 16px;
+    }
+
+    .flow-item {
+      padding: 18px;
+      border-radius: var(--radius);
+      background: #fafafa;
+      border: 1px solid var(--line);
+      position: relative;
+      min-height: 144px;
+    }
+
+    .flow-item::before {
+      counter-increment: flow;
+      content: "0" counter(flow);
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .flow-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .box {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fafafa;
+    }
+
+    .box h3 {
+      margin-top: 0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      margin: 0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+    }
+
+    .criteria {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .criteria .box {
+      background: #fff;
+    }
+
+    .note {
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 12px;
+      color: #333333;
+    }
+
+    .example {
+      margin-top: 18px;
+      padding: 24px;
+      background: #111111;
+      color: #ffffff;
+      border-radius: 22px;
+    }
+
+    .example h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .example p,
+    .example li {
+      color: #eeeeee;
+    }
+
+    .storyboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .storyboard div {
+      min-height: 120px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ---- 画像・スライド表示用の共通スタイル ---- */
+    .slide-image {
+      width: 100%;
+      max-width: 920px;
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.08);
+      border: 1px solid var(--line);
+      display: block;
+      margin: 24px auto;
+    }
+
+    .image-card {
+      margin: 24px auto;
+      max-width: 920px;
+    }
+
+    .image-card .slide-image {
+      margin: 0 auto;
+    }
+
+    .caption {
+      margin: 12px auto 0;
+      max-width: 920px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .section-kicker.pink {
+      color: var(--pink);
+      background: var(--pink-soft);
+    }
+
+    .hero-visual {
+      width: 100%;
+      display: block;
+      margin: 30px 0 0;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .split-layout .slide-image {
+      margin: 0;
+      max-width: 100%;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 28px 14px 48px;
+      }
+
+      .hero {
+        padding: 30px 22px;
+        border-radius: 22px;
+      }
+
+      section {
+        padding: 24px 20px;
+      }
+
+      .summary,
+      .flow,
+      .grid-2,
+      .criteria,
+      .storyboard,
+      .split-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-image {
+        border-radius: 16px;
+        margin: 18px auto;
+      }
+
+      .hero-visual {
+        margin-top: 22px;
+        border-radius: 14px;
+      }
+
+      .hero::after {
+        font-size: 120px;
+        right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="label">TikTok向け共創型CM企画案</div>
+      <h1>ユーザー発のCM案を、企業が公式CM化する。</h1>
+      <p class="lead">
+        企業が自社商品のCM案をTikTok上で募集し、ユーザーは指定ハッシュタグを付けて短尺CM案を投稿する。
+        企業は発想が良い投稿を選び、必要な修正を加えたうえで実際のCMとして起用する企画。
+      </p>
+
+      <img class="hero-visual" src="1.png"
+           alt="ユーザー発のCM案を企業が公式CM化する共創型TikTok CM企画のメインビジュアル">
+
+      <div class="summary">
+        <div class="summary-card">
+          <span>対象商品</span>
+          <strong>炭酸飲料など、手に入りやすい商品</strong>
+        </div>
+        <div class="summary-card">
+          <span>参加方法</span>
+          <strong>指定ハッシュタグ付きで投稿</strong>
+        </div>
+        <div class="summary-card">
+          <span>採用方針</span>
+          <strong>完成度より発想重視</strong>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>企画名案</h2>
+      <p>
+        企画名は、企業側のお題感とユーザー側の参加感が伝わるものが向いている。
+        もっとも使いやすい案は「#わたしならこう売る」。
+      </p>
+      <ul class="tag-list">
+        <li>#わたしならこう売る</li>
+        <li>#この商品のCM作ってみた</li>
+        <li>#15秒CM案</li>
+        <li>#勝手にCM化チャレンジ</li>
+        <li>#公式CMにしてみない</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>企画の目的</h2>
+      <p>
+        この企画の目的は、企業が一方的に広告を流すのではなく、TikTokユーザーの発想を使って
+        若者に届きやすいCM表現を集めること。
+      </p>
+      <p>
+        10代・20代は広告らしい広告を飛ばしやすい一方で、同世代の投稿やネタ、共感できる表現には反応しやすい。
+        そのため、商品説明ではなく「ユーザーならどう見せるか」を集める形にする。
+      </p>
+    </section>
+
+    <section class="visual-section">
+      <span class="section-kicker">企画の流れ</span>
+      <h2>基本の仕組み</h2>
+      <p>企業の「お題」から公式CM化まで、4つのステップで進む。</p>
+
+      <figure class="image-card">
+        <img class="slide-image" src="2.png"
+             alt="お題→投稿→選定→公式CM化までの企画の流れを示した図">
+        <figcaption class="caption">お題発表から公式CM化までの全体フロー</figcaption>
+      </figure>
+
+      <div class="flow">
+        <div class="flow-item">
+          <strong>企業がお題を出す</strong>
+          対象商品とハッシュタグを提示して募集する。
+        </div>
+        <div class="flow-item">
+          <strong>ユーザーが投稿する</strong>
+          15秒前後のCM案を、指定ハッシュタグを付けて投稿。
+        </div>
+        <div class="flow-item">
+          <strong>企業が発想で選ぶ</strong>
+          切り口・共感性・冒頭の強さを重視して選ぶ。
+        </div>
+        <div class="flow-item">
+          <strong>公式CM化する</strong>
+          採用案を修正・再編集し、公式CMとして公開。
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>対象商品</h2>
+      <p>
+        商品は、視聴者が日常で見たことがあり、すぐに買えるものが向いている。
+        高額商品や説明が難しい商品より、炭酸飲料・お菓子・コンビニ商品などの方が参加しやすい。
+      </p>
+
+      <div class="grid-2">
+        <div class="box">
+          <h3>向いている商品</h3>
+          <ul>
+            <li>炭酸飲料</li>
+            <li>コンビニスイーツ</li>
+            <li>お菓子</li>
+            <li>アイス</li>
+            <li>エナジードリンク</li>
+            <li>文房具</li>
+            <li>リップクリームなどの日用品</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>理由</h3>
+          <ul>
+            <li>ユーザーが入手しやすい</li>
+            <li>撮影のハードルが低い</li>
+            <li>味・気分・シーンで表現しやすい</li>
+            <li>10代・20代の日常とつながりやすい</li>
+            <li>コメントで共感が生まれやすい</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="visual-section">
+      <span class="section-kicker pink">採用基準</span>
+      <h2>完成度より、発想を見る。</h2>
+      <p>
+        「映像制作が上手い人を選ぶ」のではなく、「企業だけでは出にくい発想を拾う」ことが重要。
+        だから採用基準はガチガチにしすぎない。
+      </p>
+
+      <figure class="image-card">
+        <img class="slide-image" src="5.png"
+             alt="完成度より発想を重視するという採用基準を示したビジュアル">
+        <figcaption class="caption">採用のものさしは「プロっぽさ」ではなく「アイデア」</figcaption>
+      </figure>
+
+      <div class="criteria">
+        <div class="box">
+          <h3>重視すること</h3>
+          <ul>
+            <li>商品の見せ方が面白い</li>
+            <li>若者目線の切り口がある</li>
+            <li>冒頭でスクロールを止められる</li>
+            <li>コメントしたくなる要素がある</li>
+            <li>公式CMに発展できる余地がある</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>重視しすぎないこと</h3>
+          <ul>
+            <li>撮影機材の良さ</li>
+            <li>編集技術の高さ</li>
+            <li>プロっぽい完成度</li>
+            <li>フォロワー数</li>
+            <li>企業CMとしての完成形になっているか</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note">
+        採用基準の言い方は「完成度より、発想を見ます」が分かりやすい。
+        これにより、動画制作初心者でも参加しやすくなる。
+      </p>
+    </section>
+
+    <section class="visual-section">
+      <span class="section-kicker">なぜ伸びる？</span>
+      <h2>TikTokで流行りやすい理由</h2>
+      <p>参加動機・コメント文化・拡散性が噛み合い、自然に広がりやすい。</p>
+
+      <figure class="image-card">
+        <img class="slide-image" src="3.png"
+             alt="この企画がTikTokで流行りやすい理由をまとめたビジュアル">
+        <figcaption class="caption">ユーザーが「参加したくなる・反応したくなる」構造</figcaption>
+      </figure>
+
+      <div class="grid-2">
+        <div class="box">
+          <h3>1. 参加する理由がある</h3>
+          <p>
+            自分の案が企業CMになる可能性があるため、ただの投稿キャンペーンより参加動機が強い。
+          </p>
+        </div>
+        <div class="box">
+          <h3>2. コメントが生まれやすい</h3>
+          <p>
+            「この案好き」「自分ならこうする」「これ公式化してほしい」など、視聴者が反応しやすい。
+          </p>
+        </div>
+        <div class="box">
+          <h3>3. シリーズ化できる</h3>
+          <p>
+            募集、お題発表、投稿紹介、採用発表、公式CM公開まで、複数回の投稿に展開できる。
+          </p>
+        </div>
+        <div class="box">
+          <h3>4. 広告感を弱められる</h3>
+          <p>
+            企業が作った広告ではなく、ユーザー発のアイデアとして見せられるため、自然に受け取られやすい。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>投稿ルール案</h2>
+      <ul>
+        <li>対象商品を使った15秒前後のCM案を投稿する</li>
+        <li>指定ハッシュタグを付ける</li>
+        <li>完成CM風、絵コンテ紹介、ナレーション案、使い方提案など形式は自由</li>
+        <li>他人の映り込み、無断使用の音源、危険な撮影は避ける</li>
+        <li>採用作品は企業が一部修正・再編集する可能性がある</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>絵コンテ案の扱い</h2>
+      <p>
+        コメント欄に絵コンテ画像を貼る案は面白いが、全員が同じように使える前提にしない方が安全。
+        メインの方法は、動画内に絵コンテを入れる形が安定する。
+      </p>
+
+      <div class="grid-2">
+        <div class="box">
+          <h3>おすすめ構成</h3>
+          <ul>
+            <li>前半：完成CMっぽい映像を見せる</li>
+            <li>後半：4コマ絵コンテで構成を説明する</li>
+            <li>固定コメント：企画意図やキャッチコピーを書く</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>メリット</h3>
+          <ul>
+            <li>動画だけで内容が伝わる</li>
+            <li>制作途中の案でも投稿しやすい</li>
+            <li>企業が採用後に修正しやすい</li>
+            <li>アイデア重視の企画と相性が良い</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>企業側の投稿展開</h2>
+      <div class="flow">
+        <div class="flow-item">
+          <strong>お題発表</strong>
+          「この炭酸飲料を、あなたなら15秒でどう売る？」と投稿する。
+        </div>
+        <div class="flow-item">
+          <strong>投稿紹介</strong>
+          企業アカウントが気になった投稿にリアクションする。
+        </div>
+        <div class="flow-item">
+          <strong>採用発表</strong>
+          採用案を紹介し、どこが良かったかを短く説明する。
+        </div>
+        <div class="flow-item">
+          <strong>公式CM公開</strong>
+          採用案をもとに修正した完成CMを投稿する。
+        </div>
+      </div>
+    </section>
+
+    <section class="visual-section">
+      <span class="section-kicker">具体例</span>
+      <h2>炭酸飲料の場合</h2>
+      <p>お題から採用理由まで、実際の流れを15秒CMの絵コンテ例で見てみる。</p>
+
+      <figure class="image-card">
+        <img class="slide-image" src="4.png"
+             alt="炭酸飲料の15秒CM案を4コマで示した絵コンテ例">
+        <figcaption class="caption">絵コンテ例：放課後の気分転換を描いた15秒CM案</figcaption>
+      </figure>
+
+      <div class="example">
+        <h3>お題投稿</h3>
+        <p>
+          「この炭酸飲料、あなたならどう売る？ 15秒CM案を募集。完成度より発想重視。
+          #わたしならこう売る を付けて投稿してください。」
+        </p>
+
+        <h3>ユーザー投稿例</h3>
+        <p>
+          テーマ：放課後、疲れた気分を一気に切り替える炭酸飲料CM。
+        </p>
+
+        <div class="storyboard">
+          <div>
+            <strong>0〜3秒</strong><br>
+            机に突っ伏す学生。テロップ「今日、もう無理。」
+          </div>
+          <div>
+            <strong>3〜6秒</strong><br>
+            炭酸飲料を開ける。開栓音を強調。
+          </div>
+          <div>
+            <strong>6〜11秒</strong><br>
+            一口飲んだ瞬間、画面が明るく切り替わる。
+          </div>
+          <div>
+            <strong>11〜15秒</strong><br>
+            コピー「がんばる前に、気分を戻す炭酸。」
+          </div>
+        </div>
+
+        <h3>採用理由の例</h3>
+        <ul>
+          <li>商品の機能説明ではなく、若者の日常シーンに置き換えられている</li>
+          <li>開栓音や画面切り替えなど、TikTokで見せやすい演出がある</li>
+          <li>企業側で公式CMとして再編集しやすい</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>注意点</h2>
+      <p>
+        実際に企業CMとして採用する場合は、投稿者の許可、出演者の許可、音源の使用可否、二次利用の範囲を事前に整理する必要がある。
+        企画書では、採用時に企業が修正・再編集できることを明記しておくと安全。
+      </p>
+      <p>
+        また、ユーザーが参加しやすいように、募集時の言い方は堅くしすぎない方が良い。
+        「プロっぽさより、発想を見ます」「スマホ撮影でOK」と明記すると参加のハードルが下がる。
+      </p>
+    </section>
+
+    <section>
+      <h2>まとめ</h2>
+      <p>
+        この企画は、企業が自社商品のTikTok向けCM案を、指定ハッシュタグを通じてユーザーから募集する共創型広告企画である。
+        商品は炭酸飲料などの身近で手に入りやすいものにし、ユーザーは15秒前後のCM案を自由に投稿する。
+      </p>
+      <p>
+        採用基準は完成度より発想を重視し、企業は良い案を選んで必要な修正を加え、公式CMとして起用する。
+        TikTokの参加文化、コメント文化、短尺動画の拡散性を活かせる点が、この企画の強みである。
+      </p>
+    </section>
+
+    <footer>
+      共創型TikTok CM企画案 / HTML summary
+    </footer>
+  </main>
+</body>
+</html>

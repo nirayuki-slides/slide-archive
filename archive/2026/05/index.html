@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive 2026年5月 | yuki Slide Archive</title>
+  <script>
+    (function() {
+      var theme = "light";
+      try {
+        theme = localStorage.getItem("slide-archive-theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch (error) {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../assets/css/common.css">
+</head>
+<body>
+  <!-- このファイルは tools/generate_indexes.py が自動生成しています。手動編集せず、フォルダ構成を変更してからスクリプトを実行してください。 -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__copy">
+        <h1>Archive 2026年5月</h1>
+        <p>2026年5月にアーカイブされたスライド一覧</p>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <span class="theme-toggle__label" data-theme-label>Light</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="breadcrumb">
+      <a href="../../../">トップ</a> / <a href="../../">Archive</a> / <a href="../">2026年</a> / 5月
+    </nav>
+
+    <h2>アーカイブ一覧</h2>
+    <ul class="card-list">
+      <li>
+        <a href="2026-05-27_%E6%97%85%E5%85%88%E3%81%A7%E3%82%82Web%E5%88%B6%E4%BD%9C%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%EF%BC%81/">
+          <span class="card-title">旅先でClaudeのスマホアプリからportfolioを編集してみた</span>
+          <span class="card-desc">旅先でClaudeのスマホアプリからGitHub上のportfolioを編集してみた制作メモ。</span>
+        </a>
+      </li>
+    </ul>
+
+    <a class="back-link" href="../">← 2026年のアーカイブ月別一覧へ戻る</a>
+  </main>
+
+  <footer class="site-footer">
+    yuki Slide Archive - 静的HTMLスライド置き場
+  </footer>
+  <script>
+    (function() {
+      var root = document.documentElement;
+      var button = document.querySelector("[data-theme-toggle]");
+      var label = document.querySelector("[data-theme-label]");
+      var media = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function storedTheme() {
+        try {
+          return localStorage.getItem("slide-archive-theme");
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function setStoredTheme(theme) {
+        try {
+          localStorage.setItem("slide-archive-theme", theme);
+        } catch (error) {
+          return;
+        }
+      }
+
+      function applyTheme(theme) {
+        root.dataset.theme = theme;
+        if (button) {
+          button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+        }
+        if (label) {
+          label.textContent = theme === "dark" ? "Dark" : "Light";
+        }
+      }
+
+      applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
+
+      if (button) {
+        button.addEventListener("click", function() {
+          var next = root.dataset.theme === "dark" ? "light" : "dark";
+          applyTheme(next);
+          setStoredTheme(next);
+        });
+      }
+
+      media.addEventListener("change", function(event) {
+        if (!storedTheme()) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

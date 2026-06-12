@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="スライドショー／カルーセル型広告を、企画から実装・レビューまで迷わず進めるための作業マニュアル">
+<title>広告制作ワークフローガイド</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<button class="menu-toggle" id="menu-toggle" aria-label="サイドナビを開閉" aria-expanded="false" aria-controls="sidenav">
+  <span aria-hidden="true"></span>
+</button>
+
+<div class="layout">
+
+  <aside class="sidenav" id="sidenav" aria-label="ページ内ナビゲーション">
+    <p class="brand">広告制作<br>ワークフローガイド</p>
+    <p class="brand-sub">スライドショー／カルーセル型広告のための作業マニュアル</p>
+
+    <div class="search-box">
+      <input type="search" id="search-input" placeholder="ページ内検索…" aria-label="ページ内検索">
+      <div class="search-hits" id="search-hits" aria-live="polite"></div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a class="nav-link" href="#intro"><span class="nav-num">01</span>はじめに</a></li>
+        <li><a class="nav-link" href="#flow"><span class="nav-num">02</span>全体フロー</a></li>
+        <li><a class="nav-link" href="#regulation"><span class="nav-num">03</span>レギュレーション</a></li>
+        <li><a class="nav-link" href="#service"><span class="nav-num">04</span>サービス設計</a></li>
+        <li><a class="nav-link" href="#concept"><span class="nav-num">05</span>コンセプト設計</a></li>
+        <li><a class="nav-link" href="#slides"><span class="nav-num">06</span>スライド構成</a></li>
+        <li><a class="nav-link" href="#design"><span class="nav-num">07</span>デザイン方針</a></li>
+        <li><a class="nav-link" href="#ai-roles"><span class="nav-num">08</span>AIの役割分担</a></li>
+        <li><a class="nav-link" href="#claude-template"><span class="nav-num">09</span>Claude Code用テンプレ</a></li>
+        <li><a class="nav-link" href="#codex-template"><span class="nav-num">10</span>Codex用テンプレ</a></li>
+        <li><a class="nav-link" href="#final-check"><span class="nav-num">11</span>最終提出前チェック</a></li>
+        <li><a class="nav-link" href="#next-time"><span class="nav-num">12</span>次回作るときの最短手順</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <h1 class="page-title">広告制作ワークフローガイド</h1>
+    <p class="page-subtitle">スライドショー／カルーセル型広告を、企画から実装・レビューまで迷わず進めるための作業マニュアル</p>
+
+    <!-- 1. はじめに -->
+    <section id="intro">
+      <h2>1. はじめに</h2>
+      <p>このページは、次回以降に別サービスの広告を作るとき、何から考え、何を決め、誰に何を頼むかを迷わず確認するためのマニュアルです。</p>
+      <div class="card">
+        <ul style="margin:0;padding-left:20px;">
+          <li>広告制作は、<strong>いきなり実装しない</strong>。まず企画から始める。</li>
+          <li>最初に<strong>ターゲット・悩み・強み・CTA</strong>を決める。</li>
+          <li>企画整理は <strong>ChatGPT</strong>、実装は <strong>Claude Code</strong>、レビューは <strong>Codex</strong> に任せる。</li>
+          <li>このページは、最終的に提出できる広告にするための手順書です。</li>
+        </ul>
+      </div>
+      <div class="tip"><strong>使い方:</strong> 左のサイドナビから該当セクションに飛び、必要なテンプレを「テンプレをコピー」ボタンでコピーして使ってください。</div>
+    </section>
+
+    <!-- 2. 全体フロー -->
+    <section id="flow">
+      <h2>2. 全体フロー</h2>
+      <p class="section-meta">企画 → 実装 → レビュー → 修正 → 提出 までの全15ステップ</p>
+      <ol class="flow">
+        <li>レギュレーション確認</li>
+        <li>サービス決定</li>
+        <li>ターゲット決定</li>
+        <li>悩み決定</li>
+        <li>強み決定</li>
+        <li>メインコピー・CTA決定</li>
+        <li>デザイン方針決定</li>
+        <li>スライド構成決定</li>
+        <li>Claude Code用プロンプト作成</li>
+        <li>Claude Codeで実装</li>
+        <li>表示確認</li>
+        <li>Codex用レビュー依頼作成</li>
+        <li>Codexでレビュー</li>
+        <li>修正</li>
+        <li>提出用に整理</li>
+      </ol>
+    </section>
+
+    <!-- 3. レギュレーション -->
+    <section id="regulation">
+      <h2>3. 最初に確認するレギュレーション</h2>
+      <p>制作に入る前に必ず確認する項目。あとから手戻りが出やすい部分なので、最初に潰しておく。</p>
+      <div class="card">
+        <ul class="checklist">
+          <li data-text="広告の種類（スライドショー／カルーセル／静止画など）">広告の種類（スライドショー／カルーセル／静止画など）</li>
+          <li data-text="表示比率（16:9／1:1／9:16 など）">表示比率（16:9／1:1／9:16 など）</li>
+          <li data-text="使用技術（HTML/CSS/JS、PowerPoint など）">使用技術（HTML/CSS/JS、PowerPoint など）</li>
+          <li data-text="スライド枚数">スライド枚数</li>
+          <li data-text="CTAの有無">CTAの有無</li>
+          <li data-text="ロゴの有無">ロゴの有無</li>
+          <li data-text="自動再生の有無">自動再生の有無</li>
+          <li data-text="ナビゲーションの有無">ナビゲーションの有無</li>
+          <li data-text="提出形式（ファイル形式、URLなど）">提出形式（ファイル形式、URLなど）</li>
+          <li data-text="禁止事項">禁止事項</li>
+          <li data-text="仮文言が残っていないか">仮文言が残っていないか</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. サービス設計 -->
+    <section id="service">
+      <h2>4. サービス設計チェックリスト</h2>
+      <p>企画段階で必ず埋める項目。ここが曖昧だと、コピーもデザインもブレる。</p>
+      <div class="fields">
+        <div class="field"><div class="field-label">サービス名</div><div class="field-placeholder">[サービス名]</div></div>
+        <div class="field"><div class="field-label">サービス種別</div><div class="field-placeholder">[AI英会話 / 学習 / 観光 / EC / イベント など]</div></div>
+        <div class="field"><div class="field-label">架空 or 実在</div><div class="field-placeholder">[架空サービス / 実在サービス]</div></div>
+        <div class="field"><div class="field-label">ターゲット</div><div class="field-placeholder">[誰向けのサービスか]</div></div>
+        <div class="field"><div class="field-label">ターゲットの悩み</div><div class="field-placeholder">[悩み1 / 悩み2 / 悩み3]</div></div>
+        <div class="field"><div class="field-label">サービスの強み</div><div class="field-placeholder">[強み1 / 強み2 / 強み3]</div></div>
+        <div class="field"><div class="field-label">広告で一番伝えたいこと</div><div class="field-placeholder">[メインメッセージ]</div></div>
+        <div class="field"><div class="field-label">メインコピー</div><div class="field-placeholder">[メインコピー]</div></div>
+        <div class="field"><div class="field-label">タグライン</div><div class="field-placeholder">[タグライン]</div></div>
+        <div class="field"><div class="field-label">CTA</div><div class="field-placeholder">[CTA文言]</div></div>
+        <div class="field"><div class="field-label">デザインの雰囲気</div><div class="field-placeholder">[信頼感 / 爽やか / 高級感 / ポップ など]</div></div>
+        <div class="field"><div class="field-label">ビジュアル方針</div><div class="field-placeholder">[イラスト / 実写 / 3D / UI中心 など]</div></div>
+        <div class="field"><div class="field-label">色の方針</div><div class="field-placeholder">[メイン/サブ/アクセント/背景]</div></div>
+        <div class="field"><div class="field-label">避けたい表現</div><div class="field-placeholder">[避けたい表現1 / 2 / 3]</div></div>
+        <div class="field"><div class="field-label">スライド枚数</div><div class="field-placeholder">[3 / 4 / 5 枚]</div></div>
+        <div class="field"><div class="field-label">最終的に作るもの</div><div class="field-placeholder">[表示比率＋形式]</div></div>
+      </div>
+      <div class="tip"><strong>コピー用に使うには:</strong> 下の「サービス設計テンプレ」をコピーして、ChatGPTやメモに貼って埋めてください。</div>
+      <div class="code-box with-action">
+        <button class="copy-btn" data-copy-target="#tpl-service" aria-label="サービス設計テンプレをコピー">テンプレをコピー</button>
+<pre id="tpl-service" style="margin:0;font-family:inherit;white-space:pre-wrap;">サービス名：[サービス名]
+サービス種別：[サービス種別]
+架空 or 実在：[架空 / 実在]
+ターゲット：[誰向けか]
+ターゲットの悩み：
+- [悩み1]
+- [悩み2]
+- [悩み3]
+サービスの強み：
+- [強み1]
+- [強み2]
+- [強み3]
+広告で一番伝えたいこと：[メインメッセージ]
+メインコピー：[メインコピー]
+タグライン：[タグライン]
+CTA：[CTA文言]
+デザインの雰囲気：[全体方向性]
+ビジュアル方針：[イラスト / 実写 / 3D など]
+色の方針：
+- メイン：[メインカラー]
+- サブ：[サブカラー]
+- アクセント：[アクセントカラー]
+- 背景：[背景色]
+避けたい表現：
+- [避けたい表現1]
+- [避けたい表現2]
+スライド枚数：[枚数]
+最終的に作るもの：[表示比率と形式]</pre>
+      </div>
+    </section>
+
+    <!-- 5. コンセプト設計 -->
+    <section id="concept">
+      <h2>5. コンセプト設計</h2>
+      <p>コピーや構成に進む前に、サービスの位置づけを1〜2文に圧縮する。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>誰に向けたサービスか</h3>
+          <p style="color:var(--text-sub);font-size:13px;margin:0;">ターゲット像を具体化する。年齢・職業・状況まで。</p>
+        </div>
+        <div class="card">
+          <h3>どんな悩みを解決するか</h3>
+          <p style="color:var(--text-sub);font-size:13px;margin:0;">悩みは1つに絞る。複数あっても主役は1つだけ。</p>
+        </div>
+        <div class="card">
+          <h3>なぜそのサービスなら解決できるか</h3>
+          <p style="color:var(--text-sub);font-size:13px;margin:0;">他では解決できない、独自の強みを1つ言語化する。</p>
+        </div>
+        <div class="card">
+          <h3>使った後にどう変わるか</h3>
+          <p style="color:var(--text-sub);font-size:13px;margin:0;">体験価値・変化を、感情を伴う言葉で書く。</p>
+        </div>
+      </div>
+
+      <h3>コンセプトテンプレ</h3>
+      <div class="code-box with-action">
+        <button class="copy-btn" data-copy-target="#tpl-concept" aria-label="コンセプトテンプレをコピー">テンプレをコピー</button>
+<pre id="tpl-concept" style="margin:0;font-family:inherit;white-space:pre-wrap;">[ターゲット]でも、[サービスの強み]によって、[悩み]を気にせず始められる。
+[サービス名]は、[体験価値]を提供する[サービス種別]。</pre>
+      </div>
+    </section>
+
+    <!-- 6. スライド構成 -->
+    <section id="slides">
+      <h2>6. スライド構成テンプレ</h2>
+      <p>基本は4枚構成。<strong>悩み共感 → 解決提示 → 価値・機能紹介 → CTA</strong> の流れを守る。</p>
+
+      <div class="card-grid">
+        <div class="slide-card">
+          <span class="badge">SLIDE 1</span>
+          <h3>悩み共感</h3>
+          <dl>
+            <dt>目的</dt><dd>ターゲットの悩みを短く提示し、自分ごと化させる</dd>
+            <dt>表示コピー</dt><dd>[悩みを言語化した一言]</dd>
+            <dt>補足コピー</dt><dd>[共感を強める短いフレーズ]</dd>
+            <dt>ビジュアル案</dt><dd>悩みを示すアイコン／表情／状況イメージ</dd>
+            <dt>注意点</dt><dd>商品説明をしない。煽りすぎない。</dd>
+          </dl>
+        </div>
+        <div class="slide-card">
+          <span class="badge">SLIDE 2</span>
+          <h3>解決提示</h3>
+          <dl>
+            <dt>目的</dt><dd>サービスでどう悩みが軽くなるかを見せる</dd>
+            <dt>表示コピー</dt><dd>[メインコピー]</dd>
+            <dt>補足コピー</dt><dd>[解決の理由を1行で]</dd>
+            <dt>ビジュアル案</dt><dd>before→afterや、解決を象徴する図解</dd>
+            <dt>注意点</dt><dd>メインコピーを最も大きく見せる</dd>
+          </dl>
+        </div>
+        <div class="slide-card">
+          <span class="badge">SLIDE 3</span>
+          <h3>サービス価値・機能紹介</h3>
+          <dl>
+            <dt>目的</dt><dd>具体的な機能やメリットを3〜4個で見せる</dd>
+            <dt>表示コピー</dt><dd>[機能カード1] / [機能カード2] / [機能カード3]</dd>
+            <dt>補足コピー</dt><dd>[各機能の補足]</dd>
+            <dt>ビジュアル案</dt><dd>機能アイコン、UIモック、数字を伴うカード</dd>
+            <dt>注意点</dt><dd>盛り込みすぎない。1スライド1メッセージを意識</dd>
+          </dl>
+        </div>
+        <div class="slide-card">
+          <span class="badge">SLIDE 4</span>
+          <h3>CTA</h3>
+          <dl>
+            <dt>目的</dt><dd>サービス名、タグライン、CTAで行動を明確にする</dd>
+            <dt>表示コピー</dt><dd>[サービス名] / [タグライン]</dd>
+            <dt>補足コピー</dt><dd>[最後のひと押しコピー]</dd>
+            <dt>ビジュアル案</dt><dd>ロゴ・サービスメイン画像・大きなCTAボタン</dd>
+            <dt>注意点</dt><dd>CTAボタンを最も目立たせる。次の行動を迷わせない</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tip">
+        <strong>応用:</strong> 3枚構成では「悩み共感」と「解決提示」を1枚に統合。5枚構成では「解決提示」と「機能紹介」の間に「使い方ステップ」や「実績・声」を1枚追加すると自然。
+      </div>
+    </section>
+
+    <!-- 7. デザイン方針 -->
+    <section id="design">
+      <h2>7. デザイン方針チェックリスト</h2>
+      <p>実装に入る前、また実装後の自己チェックに使う。「ターゲット × 雰囲気」がズレていないかを最優先で確認。</p>
+      <div class="card">
+        <ul class="checklist">
+          <li data-text="ターゲットに合っているか">ターゲットに合っているか</li>
+          <li data-text="サービスの信頼感を下げていないか">サービスの信頼感を下げていないか</li>
+          <li data-text="子どもっぽすぎないか">子どもっぽすぎないか</li>
+          <li data-text="怪しく見えないか">怪しく見えないか</li>
+          <li data-text="CTAが埋もれていないか">CTAが埋もれていないか</li>
+          <li data-text="色が単調になりすぎていないか">色が単調になりすぎていないか</li>
+          <li data-text="コピーとビジュアルの方向性がズレていないか">コピーとビジュアルの方向性がズレていないか</li>
+          <li data-text="スクリーンショットで見ても広告として成立するか">スクリーンショットで見ても広告として成立するか</li>
+        </ul>
+      </div>
+
+      <h3>合わない組み合わせの例</h3>
+      <div class="mismatch-grid">
+        <div class="mismatch-card">社会人向け <span class="x">×</span> 子どもっぽいイラスト</div>
+        <div class="mismatch-card">信頼感重視 <span class="x">×</span> ネオン系の過度なAI表現</div>
+        <div class="mismatch-card">初心者向け <span class="x">×</span> 強すぎる不安煽り</div>
+        <div class="mismatch-card">白ベース <span class="x">×</span> CTAが目立たない</div>
+      </div>
+    </section>
+
+    <!-- 8. AIの役割分担 -->
+    <section id="ai-roles">
+      <h2>8. AIの役割分担</h2>
+      <p>3つのAIを「何のために使うか」で切り分ける。同じ作業を複数のAIに頼まないことで効率を保つ。</p>
+      <div class="ai-roles">
+        <div class="ai-role">
+          <h3>ChatGPT</h3>
+          <p class="role-sub">企画・整理・プロンプト作成担当</p>
+          <ul>
+            <li>コンセプト整理</li>
+            <li>ターゲット整理</li>
+            <li>コピー案作成</li>
+            <li>Claude Code用プロンプト作成</li>
+            <li>Codex用レビュー指示作成</li>
+            <li>作業工程の整理</li>
+          </ul>
+        </div>
+        <div class="ai-role">
+          <h3>Claude Code</h3>
+          <p class="role-sub">実装担当</p>
+          <ul>
+            <li>HTML/CSS/JavaScriptの実装</li>
+            <li>ファイル構造作成</li>
+            <li>アニメーション実装</li>
+            <li>カルーセル機能実装</li>
+            <li>README作成</li>
+            <li>見返し用HTML作成</li>
+          </ul>
+        </div>
+        <div class="ai-role">
+          <h3>Codex</h3>
+          <p class="role-sub">レビュー・指摘担当</p>
+          <ul>
+            <li>コードレビュー</li>
+            <li>バグ確認</li>
+            <li>アクセシビリティ確認</li>
+            <li>レスポンシブ確認</li>
+            <li>広告として弱い点の指摘</li>
+            <li>修正案の提示</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Claude Code 用テンプレ -->
+    <section id="claude-template">
+      <h2>9. Claude Code 用 汎用実装テンプレ</h2>
+      <p>このテンプレを埋めて Claude Code に渡せば、スライドショー／カルーセル型広告の実装ができる。</p>
+      <div class="collapsible" id="collapse-claude">
+        <button class="collapsible-header" type="button" aria-expanded="false" aria-controls="collapse-claude-body">
+          <span>Claude Code 実装テンプレ全文 <span class="collapsible-header-meta">（クリックで展開）</span></span>
+          <span class="chev" aria-hidden="true">▼</span>
+        </button>
+        <div class="collapsible-actions" role="group" aria-label="テンプレ操作">
+          <button class="copy-btn" data-copy-target="#tpl-claude" aria-label="Claude Code 用テンプレをコピー">テンプレをコピー</button>
+        </div>
+        <div class="collapsible-body" id="collapse-claude-body">
+          <div class="code-box">
+<pre id="tpl-claude" style="margin:0;font-family:inherit;white-space:pre-wrap;"># Claude Code 汎用実装テンプレ：スライドショー／カルーセル型広告
+
+## 目的
+
+HTML、CSS、JavaScriptを使って、[サービス名]のスライドショー／カルーセル型広告を作成してください。
+
+[課題・制作条件・PowerPointレギュレーション]に沿って、[表示比率]のHTML表示内で成立する広告にしてください。既存ファイルがある場合は内容を確認し、必要に応じて修正または作り直してください。
+
+ファイル作成、フォルダ作成、構造設計はClaude Code側で判断して構いません。
+
+最終的に、ブラウザでHTMLを開くだけで広告が表示される静的サイトとして完成させてください。
+
+## 今回の制作条件
+
+広告対象：
+[サービス名]
+
+サービス種別：
+[サービス種別]
+
+表示形式：
+スライドショー／カルーセル型広告
+
+表示比率：
+[16:9 / 1:1 / 9:16 / その他]
+
+使用技術：
+HTML / CSS / JavaScript
+
+スライド枚数：
+[3枚 / 4枚 / 5枚 など]
+
+実装方式：
+ビルド不要の静的HTMLとして作成
+
+確認方法：
+ブラウザでHTMLを直接開いて確認できる状態にする
+
+## 重要な前提
+
+- React、Vue、Svelteなどのフレームワークは使わない
+- HTML / CSS / JavaScriptのみで実装する
+- ビルド環境なしで動作するようにする
+- [表示比率]の表示領域で広告として成立させる
+- スライドショー／カルーセル型広告にする
+- [スライド枚数]枚構成にする
+- 自動再生アニメーションを入れる
+- ドットナビゲーションを入れる
+- 可能なら前後ボタンも入れる
+- CTAボタンを入れる
+- ロゴまたはサービス名を左上に配置する
+- 広告全体を中央にきれいに配置する
+- 不要な仮文字、テスト文言、仮デザインは残さない
+- コンセプトに合わない表現は避ける
+- コンソールエラーが出ないようにする
+
+## サービス情報
+
+サービス名：
+[サービス名]
+
+会社名またはブランド名：
+[会社名・ブランド名。不要なら空欄]
+
+サービス種別：
+[サービス種別]
+
+ターゲット：
+[誰向けのサービスか]
+
+ターゲットの悩み：
+- [悩み1]
+- [悩み2]
+- [悩み3]
+
+サービスの強み：
+- [強み1]
+- [強み2]
+- [強み3]
+
+広告で一番伝えたいこと：
+[メインメッセージ]
+
+メインコピー：
+[メインコピー]
+
+タグライン・補助コピー：
+[タグライン]
+
+CTA：
+[CTA文言]
+
+最終コンセプト：
+[誰に向けて、どんな悩みを、どんな強みで解決するサービスなのかを1〜2文で記載]
+
+## デザイン方針
+
+全体の方向性：
+[信頼感 / 爽やか / ポップ / 高級感 / 近未来 / かわいい / シンプル / 力強い など]
+
+色：
+- メインカラー：[メインカラー]
+- サブカラー：[サブカラー]
+- アクセントカラー：[アクセントカラー]
+- 背景色：[背景色]
+
+UIの雰囲気：
+[Apple風のミニマルUI / カード型UI / 雑誌風 / ゲーム風 / LP風 / 高級感重視 など]
+
+ビジュアル方針：
+[イラスト系 / 実写系 / 3D系 / UI中心 / キャラクター中心 / 抽象表現中心 など]
+
+画像・素材方針：
+- 外部画像を無理に取得しない
+- 著作権的に安全なCSS図形、SVG、抽象イラスト、UIモックを使ってよい
+- 必要に応じてassetsフォルダを作成してよい
+- 画像生成が必要だと判断した場合は、画像生成用プロンプトをREADMEまたはprompts.mdにまとめる
+- 本番素材がない場合でも、仮素材に見えすぎない品質で作る
+
+避けたい表現：
+- [避けたい表現1]
+- [避けたい表現2]
+- [避けたい表現3]
+
+## スライド構成
+
+### Slide 1：[役割名]
+
+目的：
+[このスライドで伝えたいこと]
+
+表示コピー：
+[見出しコピー]
+
+補足コピー：
+[補足コピー]
+
+ビジュアル案：
+[ビジュアル内容]
+
+注意点：
+[このスライドで避けたいこと、強調したいこと]
+
+### Slide 2：[役割名]
+
+目的：
+[このスライドで伝えたいこと]
+
+表示コピー：
+[見出しコピー]
+
+補足コピー：
+[補足コピー]
+
+ビジュアル案：
+[ビジュアル内容]
+
+注意点：
+[このスライドで避けたいこと、強調したいこと]
+
+### Slide 3：[役割名]
+
+目的：
+[このスライドで伝えたいこと]
+
+表示コピー：
+[見出しコピー]
+
+補足コピー：
+[補足コピー]
+
+ビジュアル案：
+[ビジュアル内容]
+
+入れたい要素：
+- [要素1]
+- [要素2]
+- [要素3]
+
+注意点：
+[このスライドで避けたいこと、強調したいこと]
+
+### Slide 4：[役割名]
+
+目的：
+[このスライドで伝えたいこと]
+
+表示コピー：
+[見出しコピー]
+
+補足コピー：
+[補足コピー]
+
+CTAボタン：
+[CTA文言]
+
+ビジュアル案：
+[ビジュアル内容]
+
+注意点：
+[このスライドで避けたいこと、強調したいこと]
+
+## 推奨スライド構成
+
+迷う場合は、以下の4枚構成で作成してください。
+
+1. 悩み共感
+2. 解決提示
+3. サービス価値・機能紹介
+4. CTA
+
+## レイアウト要件
+
+- 画面比率は[表示比率]を守る
+- 広告本体は中央配置
+- ロゴまたはサービス名は左上
+- メインコピーは大きく、最初に目に入る位置に置く
+- CTAは最終スライドで最も目立たせる
+- ドットナビゲーションは下部中央に配置する
+- 前後ボタンを入れる場合は広告表現の邪魔にならない位置にする
+- 1スライド1メッセージを徹底する
+- 文字を詰め込みすぎない
+- 余白を十分に取る
+- 画面録画やスクリーンショットで提出しやすい見た目にする
+
+## アニメーション要件
+
+- 自動でスライドが切り替わる
+- 切り替え間隔は4秒〜5秒程度
+- スライド切り替えはなめらかにする
+- 過度に派手な演出は避ける
+- ユーザーがドットや前後ボタンを押したら該当スライドへ切り替わる
+- 手動操作後も自然に自動再生へ戻る
+- 可能ならホバー中は一時停止する
+- 可能ならタブ非アクティブ時は自動再生を停止する
+- 可能ならprefers-reduced-motionに対応する
+
+## 実装要件
+
+- HTML、CSS、JavaScriptを分離してもよい
+- 1ファイル構成でもよいが、保守しやすい構成を優先する
+- ファイル構造はClaude Codeが判断する
+- 最終的にどのHTMLを開けばよいかREADMEに明記する
+- JavaScriptは読みやすく書く
+- CSSは変数を使い、配色や余白を管理しやすくする
+- 不要なコメントや仮テキストは残さない
+- コンソールエラーが出ないようにする
+- 画像やSVGを使う場合は、ファイルパス切れが起きないようにする
+- ブラウザで直接開いても動作する相対パスにする
+
+## 推奨ファイル構成
+
+    project-root/
+      index.html
+      css/
+        style.css
+      js/
+        carousel.js
+      assets/
+        images/
+        svg/
+      README.md
+      prompts.md
+
+## 品質基準
+
+- [表示比率]の広告として表示される
+- カルーセルが[スライド枚数]枚ある
+- 自動再生される
+- ドットナビゲーションが動作する
+- CTAが明確に見える
+- ロゴまたはサービス名が左上にある
+- テキストが読みやすく配置されている
+- デザイン方針に合っている
+- ターゲットに合っている
+- 不要な仮文言が残っていない
+- HTML / CSS / JS にエラーがない
+- ブラウザで直接開いて確認できる
+- READMEに開き方が書かれている
+
+## 仕上げ時の出力
+
+実装が終わったら、以下を出力してください。
+
+1. 作成・修正したファイル一覧
+2. どのHTMLを開けば確認できるか
+3. 実装したカルーセル機能の概要
+4. デザイン上の意図
+5. レギュレーションに対して満たした点
+6. まだ弱い点
+7. Codexでレビューした方がよい点
+</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Codex 用テンプレ -->
+    <section id="codex-template">
+      <h2>10. Codex 用 汎用レビュー依頼テンプレ</h2>
+      <p>Claude Code で実装が終わったら、このテンプレを埋めて Codex にレビュー依頼。忖度なしで指摘してもらう。</p>
+      <div class="collapsible" id="collapse-codex">
+        <button class="collapsible-header" type="button" aria-expanded="false" aria-controls="collapse-codex-body">
+          <span>Codex レビュー依頼テンプレ全文 <span class="collapsible-header-meta">（クリックで展開）</span></span>
+          <span class="chev" aria-hidden="true">▼</span>
+        </button>
+        <div class="collapsible-actions" role="group" aria-label="テンプレ操作">
+          <button class="copy-btn" data-copy-target="#tpl-codex" aria-label="Codex 用テンプレをコピー">テンプレをコピー</button>
+        </div>
+        <div class="collapsible-body" id="collapse-codex-body">
+          <div class="code-box">
+<pre id="tpl-codex" style="margin:0;font-family:inherit;white-space:pre-wrap;"># Codex 汎用レビュー依頼テンプレ：スライドショー／カルーセル型広告
+
+## 目的
+
+Claude Codeで実装した、[サービス名]のスライドショー／カルーセル型広告をレビューしてください。
+
+実装はHTML、CSS、JavaScriptです。[課題・制作条件・PowerPointレギュレーション]に沿って、[表示比率]表示の広告として成立しているかを確認してください。
+
+レビューでは、コードの正しさだけでなく、広告としての伝わりやすさ、UIの見やすさ、ターゲットとの相性、提出物としての完成度も確認してください。
+
+忖度なしで、問題点があれば重要度順に指摘してください。
+
+## 前提情報
+
+広告対象：
+[サービス名]
+
+サービス種別：
+[サービス種別]
+
+ターゲット：
+[誰向けのサービスか]
+
+ターゲットの悩み：
+- [悩み1]
+- [悩み2]
+- [悩み3]
+
+サービスの強み：
+- [強み1]
+- [強み2]
+- [強み3]
+
+広告で一番伝えたいこと：
+[メインメッセージ]
+
+コンセプト：
+[誰に向けて、どんな悩みを、どんな強みで解決する広告なのかを1〜2文]
+
+## 必須コピー
+
+以下のコピーが正しく入っているか確認してください。
+
+- サービス名：[サービス名]
+- メインコピー：[メインコピー]
+- タグライン：[タグライン]
+- CTA：[CTA文言]
+
+## デザイン方針
+
+全体の方向性：
+[信頼感 / 爽やか / ポップ / 高級感 / 近未来 など]
+
+配色：
+- メインカラー：[メインカラー]
+- サブカラー：[サブカラー]
+- アクセントカラー：[アクセントカラー]
+- 背景色：[背景色]
+
+UIの雰囲気：
+[Apple風のミニマル / カード型 / 雑誌風 / LP風 など]
+
+ビジュアル方針：
+[イラスト / 実写 / 3D / UI中心 など]
+
+避けたい表現：
+- [避けたい表現1]
+- [避けたい表現2]
+- [避けたい表現3]
+
+## 制作条件
+
+表示形式：スライドショー／カルーセル型広告
+表示比率：[16:9 / 1:1 / 9:16 / その他]
+スライド枚数：[枚数]
+使用技術：HTML / CSS / JavaScript
+実装方式：ビルド不要の静的HTML
+確認方法：[例：index.htmlを直接ブラウザで開く]
+ファイル構成：[実装後のファイル構成]
+
+## レビュー観点
+
+### 1. レギュレーション適合
+- [表示比率]の表示領域として成立しているか
+- スライドショー／カルーセル型広告になっているか
+- [スライド枚数]枚構成が明確か
+- CTAが入っているか
+- ロゴ／サービス名が左上にあるか
+- 広告全体が中央配置か
+- 仮文言・テスト文言・仮デザインが残っていないか
+- ブラウザで直接開いて確認できるか
+- 提出用スクリーンショット／録画に耐える見た目か
+
+### 2. 広告としての完成度
+- 1枚目でターゲットの興味を引けているか
+- 1枚目で悩みに自然に共感できるか
+- 2枚目で解決策が明確に伝わるか
+- 3枚目でサービス価値・機能が伝わるか
+- 最終スライドでCTAへの誘導が明確か
+- 1スライド1メッセージか
+- コピーが長すぎないか・抽象的すぎないか
+- ターゲットに合った言葉遣いか
+- 短時間で魅力が伝わるか
+- 避けたい表現に寄っていないか
+- 誇大広告・煽りに見えていないか
+
+### 3. スライド構成
+- スライドにストーリーがあるか
+- 悩み共感 → 解決提示 → 価値・機能 → CTA の流れか
+- 役割が重複していないか
+- 情報量が多すぎないか
+- 途中で何の広告かわからなくならないか
+- 最終スライドで行動が明確か
+- 順番を入れ替えた方がよい箇所はないか
+
+### 4. UI・デザイン
+- 配色がコンセプトに合っているか
+- ターゲットに合った見た目か
+- 余白・行間・文字サイズが読みやすいか
+- 見出しと本文の強弱が明確か
+- CTAボタンが視認しやすい・押せると分かるか
+- ドットナビゲーションが見やすいか
+- 前後ボタンが邪魔になっていないか
+- イラスト／ビジュアルが品質を下げていないか
+- 全体のトーンが揃っているか
+- 安っぽい・幼い・怪しい印象になっていないか
+- スクショで見ても広告として成立するか
+
+### 5. HTMLレビュー
+- 構造・見出し階層・要素選択が適切か
+- 不要なdivや仮テキストが残っていないか
+- alt属性・aria属性が必要箇所にあるか
+- CSS／JSの読み込みパスが正しいか
+- 直接開いてもパス切れが起きないか
+
+### 6. CSSレビュー
+- [表示比率]が崩れないか
+- 基準サイズで美しく見えるか・小さい画面でも崩れないか
+- レスポンシブ指定が適切か
+- CSS変数が整理されているか
+- 同じ指定の重複・無駄なz-indexがないか
+- アニメーションが過剰でないか
+- hover／focus状態が用意されているか
+- 余白・サイズ指定が場当たり的になっていないか
+
+### 7. JavaScriptレビュー
+- 自動再生／ドット／前後ボタン／キーボードが正常に動くか
+- ホバー時の一時停止・タブ非アクティブ時の挙動が自然か
+- 手動操作後の自動再生復帰が自然か
+- 状態管理が破綻していないか
+- setInterval／setTimeout／イベントリスナーが増殖していないか
+- コンソールエラーがないか
+- 変数名・関数名がわかりやすいか
+
+### 8. アクセシビリティ
+- ボタンに適切なaria-labelがあるか
+- 現在のスライドがaria-currentなどで表現されているか
+- aria-liveの使い方が適切か
+- キーボードだけで操作できるか
+- focus状態が見えるか
+- コントラストが十分か
+- prefers-reduced-motion対応があるか
+- 自動再生がユーザー操作を邪魔していないか
+- 画像・SVGに代替情報があるか
+
+### 9. パフォーマンス・保守性
+- 重い画像／処理がないか
+- 外部依存が不要に増えていないか
+- ファイル構成・分離がわかりやすいか
+- 別サービスに流用しやすいか
+- READMEに開き方や構成が書かれているか
+- コメントが必要最低限か
+
+## 出力形式
+
+### 1. 総合評価
+点数：[点数]/100
+一言評価：[完成度を一言で]
+
+### 2. 良い点
+- [良い点1]
+- [良い点2]
+- [良い点3]
+
+### 3. 問題点（重要度順）
+- 重要度：高
+  - [問題点][理由][修正方針]
+- 重要度：中
+  - [問題点][理由][修正方針]
+- 重要度：低
+  - [問題点][理由][修正方針]
+
+### 4. すぐ直すべき修正
+- [修正1]
+- [修正2]
+- [修正3]
+
+### 5. できれば直す改善
+- [改善1]
+- [改善2]
+- [改善3]
+
+### 6. コード修正案
+修正対象：[HTML / CSS / JavaScript]
+修正理由：[なぜ直すべきか]
+修正案：
+    [コード案 or 差分案]
+
+### 7. 広告コピー改善案
+現状コピー：[現状]
+問題点：[問題点]
+改善案：
+- [改善コピー1]
+- [改善コピー2]
+- [改善コピー3]
+
+### 8. デザイン改善案
+- 配色：[改善案]
+- 余白：[改善案]
+- CTA：[改善案]
+- ビジュアル：[改善案]
+
+### 9. 最終判断
+[このまま提出 / 軽微な修正後に提出 / 重要な修正をしてから提出 / 現状では提出しない方がよい]
+理由：[理由]
+
+## 特に厳しく見てほしい点
+
+- [厳しく見てほしい点1]
+- [厳しく見てほしい点2]
+- [厳しく見てほしい点3]
+
+## 注意
+
+忖度なしでレビューしてください。
+見た目がそれっぽくても、広告として弱い点があれば指摘してください。
+ただし、学校課題として必要十分な範囲も考慮し、過剰な作り込みより提出物として効果的に見えることを優先してください。
+修正案は実装者がそのまま直せるように具体的に書いてください。
+</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. 最終提出前チェック -->
+    <section id="final-check">
+      <h2>11. 最終提出前チェックリスト</h2>
+      <p>提出ボタンを押す前に、必ず1項目ずつ確認する。</p>
+      <div class="card">
+        <ul class="checklist">
+          <li data-text="HTMLを直接開いて動く">HTMLを直接開いて動く</li>
+          <li data-text="指定比率が守られている">指定比率が守られている</li>
+          <li data-text="スライドが自動再生される">スライドが自動再生される</li>
+          <li data-text="ドットナビゲーションが動く">ドットナビゲーションが動く</li>
+          <li data-text="CTAが見える">CTAが見える</li>
+          <li data-text="ロゴまたはサービス名がある">ロゴまたはサービス名がある</li>
+          <li data-text="仮文字が残っていない">仮文字が残っていない</li>
+          <li data-text="コンソールエラーがない">コンソールエラーがない</li>
+          <li data-text="スクショで見ても広告として成立する">スクショで見ても広告として成立する</li>
+          <li data-text="ターゲットに合ったデザインになっている">ターゲットに合ったデザインになっている</li>
+          <li data-text="コピーが長すぎない">コピーが長すぎない</li>
+          <li data-text="避けたい表現が入っていない">避けたい表現が入っていない</li>
+          <li data-text="READMEに開き方が書かれている">READMEに開き方が書かれている</li>
+          <li data-text="Codexレビュー後の修正が反映されている">Codexレビュー後の修正が反映されている</li>
+        </ul>
+      </div>
+      <div class="tip"><strong>メモ:</strong> チェックボックスはクリックで状態を切り替えできます（ローカル一時的、ページを閉じるとリセットされます）。</div>
+    </section>
+
+    <!-- 12. 次回作るときの最短手順 -->
+    <section id="next-time">
+      <h2>12. 次回作るときの最短手順</h2>
+      <p>次回別サービスを作るときは、この13ステップを上から順に。</p>
+      <ol class="steps-min">
+        <li>サービス名を決める</li>
+        <li>ターゲットを決める</li>
+        <li>ターゲットの悩みを<strong>1つ</strong>に絞る</li>
+        <li>サービスの強みを<strong>1つ</strong>に絞る</li>
+        <li>メインコピーを作る</li>
+        <li>CTAを決める</li>
+        <li>デザインの雰囲気を決める</li>
+        <li>4枚構成に分解する</li>
+        <li>Claude Code用テンプレを埋める</li>
+        <li>Claude Codeで実装する</li>
+        <li>Codex用テンプレを埋める</li>
+        <li>Codexでレビューする</li>
+        <li>修正して提出する</li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+
+<button class="scroll-top" id="scroll-top" aria-label="ページ上部へ戻る" title="ページ上部へ戻る">↑</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

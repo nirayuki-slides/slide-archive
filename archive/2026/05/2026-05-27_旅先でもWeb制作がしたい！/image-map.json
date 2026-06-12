@@ -1,0 +1,109 @@
+{
+  "source_markdown": "無題のファイル.md",
+  "mappings": [
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-03-47.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-03-47.png]].png",
+      "output_file": "assets/eyecatch.png",
+      "role": "eyecatch",
+      "display_size": null
+    },
+    {
+      "markdown_ref": "2026-05-27-無題のファイル-00-55-19.png",
+      "source_file": "![[2026-05-27-無題のファイル-00-55-19.png224x485]].PNG",
+      "output_file": "assets/image-01.png",
+      "display_size": "224x485"
+    },
+    {
+      "markdown_ref": "2026-05-27-無題のファイル-00-56-24.png",
+      "source_file": "![[2026-05-27-無題のファイル-00-56-24.png224x485]].PNG",
+      "output_file": "assets/image-02.png",
+      "display_size": "224x485"
+    },
+    {
+      "markdown_ref": "2026-05-27-無題のファイル-00-58-11.png",
+      "source_file": "![[2026-05-27-無題のファイル-00-58-11.png219x473]].png",
+      "output_file": "assets/image-03.png",
+      "display_size": "219x473"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-13-36.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-13-36.png382]].PNG",
+      "output_file": "assets/image-04.png",
+      "display_size": "382"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-14-17.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-14-17.png383x829]].PNG",
+      "output_file": "assets/image-05.png",
+      "display_size": "383x829"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-22-19.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-22-19.png383x829]].PNG",
+      "output_file": "assets/image-06.png",
+      "display_size": "383x829"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-25-19.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-25-19.png383x829]].PNG",
+      "output_file": "assets/image-07.png",
+      "display_size": "383x829"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-27-47.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-27-47.png]].PNG",
+      "output_file": "assets/image-08.png",
+      "display_size": "382x827"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-29-17.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-29-17.png]].png",
+      "output_file": "assets/image-09.png",
+      "display_size": "385x834"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-30-41.jpg",
+      "source_file": "![[2026-05-26-無題のファイル-21-30-41.jpg351x430]].jpg",
+      "output_file": "assets/image-10.jpg",
+      "display_size": "351x430"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-31-11.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-31-11.png]].PNG",
+      "output_file": "assets/image-11.png",
+      "display_size": "276x597"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-33-44.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-33-44.png354x766]].PNG",
+      "output_file": "assets/image-12.png",
+      "display_size": "354x766"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-56-13.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-56-13.png364x788]].PNG",
+      "output_file": "assets/image-13.png",
+      "display_size": "364x788"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-56-36.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-56-36.png357x773]].PNG",
+      "output_file": "assets/image-14.png",
+      "display_size": "357x773"
+    },
+    {
+      "markdown_ref": "2026-05-26-無題のファイル-21-58-22.png",
+      "source_file": "![[2026-05-26-無題のファイル-21-58-22.png363x786]].PNG",
+      "output_file": "assets/image-15.png",
+      "display_size": "363x786"
+    },
+    {
+      "markdown_ref": "2026-05-27-無題のファイル-00-34-19.png",
+      "source_file": "![[2026-05-27-無題のファイル-00-34-19.png360x780]].png",
+      "output_file": "assets/image-16.png",
+      "display_size": "360x780"
+    }
+  ],
+  "unresolved": []
+}
