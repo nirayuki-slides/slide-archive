@@ -16,5 +16,20 @@ dist/
 .env
 *.log
 
-# 個人名を含む作業メモ(公開しない・ローカルには残す)
-2026/06/restricted-lunch/*.txt
+# ローカル専用フォルダ(公開しない・ローカルには残す)
+_local/
+_private/
+
+# スライド原本・元資料
+*.pptx
+*.key
+*.pages
+
+# AI作業用・メモ系md(README.md / CLAUDE.md はGit管理対象のまま残す)
+project.md
+report.md
+image-assets.md
+image-prompts.md
+implementation-brief.md
+final-review-spec.md
+AGENTS.md

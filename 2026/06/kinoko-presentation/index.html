@@ -360,9 +360,11 @@
     </div>
     <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
     <p class="help">クリック / タップ / Space / Enter / ← → で操作</p>
-    <!-- アーカイブ用の戻るリンク(左下固定・既存UIと重ならない位置) -->
-    <p style="position:fixed; left:16px; bottom:16px; z-index:20; margin:0; padding:5px 14px; border-radius:999px; background:rgba(16,12,20,0.42); backdrop-filter:blur(4px); font-size:12px;">
-      <a href="../" style="color:#fff; text-decoration:none;">← 一覧へ戻る</a>
+    <!-- アーカイブ用の戻るリンク(左下固定・既存UIと重ならない位置)
+         onclick の stopPropagation で deck のページ送りクリックを抑止する -->
+    <p style="position:fixed; left:16px; bottom:16px; z-index:20; margin:0; padding:5px 14px; border-radius:999px; background:rgba(16,12,20,0.42); backdrop-filter:blur(4px); font-size:12px;"
+       onclick="event.stopPropagation()">
+      <a href="../" style="color:#fff; text-decoration:none;" onclick="event.stopPropagation()">← 一覧へ戻る</a>
     </p>
   </div>
 
