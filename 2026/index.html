@@ -20,37 +20,57 @@
 </head>
 <body>
   <!-- このファイルは tools/generate_indexes.py が自動生成しています。手動編集せず、フォルダ構成を変更してからスクリプトを実行してください。 -->
+  <svg class="liquid-glass-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="liquidGlass" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" seed="12" result="noise"></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="70" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+    </filter>
+  </svg>
   <header class="site-header">
-    <div class="site-header__inner">
-      <div class="site-header__copy">
-        <h1>2026年</h1>
-        <p>2026年のスライド一覧(月別)</p>
+    <div class="site-header__inner glass">
+      <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+      <div class="glass__content site-header__content">
+        <div class="site-header__copy">
+          <h1>2026年</h1>
+          <p>2026年のスライド一覧(月別)</p>
+        </div>
+        <button class="theme-toggle glass" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content theme-toggle__content">
+            <span class="theme-toggle__track" aria-hidden="true">
+              <span class="theme-toggle__thumb"></span>
+            </span>
+            <span class="theme-toggle__label" data-theme-label>Light</span>
+          </span>
+        </button>
       </div>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
-        <span class="theme-toggle__track" aria-hidden="true">
-          <span class="theme-toggle__thumb"></span>
-        </span>
-        <span class="theme-toggle__label" data-theme-label>Light</span>
-      </button>
     </div>
   </header>
 
   <main class="container">
-    <nav class="breadcrumb">
-      <a href="../">トップ</a> / 2026年
+    <nav class="breadcrumb glass">
+      <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+      <span class="glass__content breadcrumb__content"><a href="../">トップ</a> / 2026年</span>
     </nav>
 
     <h2>月別一覧</h2>
     <ul class="card-list">
       <li>
-        <a href="06/">
-          <span class="card-title">6月</span>
-          <span class="card-desc">2026年6月のスライド(1件)</span>
+        <a class="card glass" href="06/">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content card__content">
+            <span class="card-title">6月</span>
+            <span class="card-desc">2026年6月のスライド(1件)</span>
+            <span class="card-arrow" aria-hidden="true"></span>
+          </span>
         </a>
       </li>
     </ul>
 
-    <a class="back-link" href="../">← トップへ戻る</a>
+    <a class="back-link glass" href="../">
+      <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+      <span class="glass__content">← トップへ戻る</span>
+    </a>
   </main>
 
   <footer class="site-footer">

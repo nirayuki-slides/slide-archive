@@ -20,61 +20,97 @@
 </head>
 <body>
   <!-- このファイルは tools/generate_indexes.py が自動生成しています。手動編集せず、フォルダ構成を変更してからスクリプトを実行してください。 -->
+  <svg class="liquid-glass-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="liquidGlass" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" seed="12" result="noise"></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="70" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+    </filter>
+  </svg>
   <header class="site-header">
-    <div class="site-header__inner">
-      <div class="site-header__copy">
-        <h1>Archive 2026年5月</h1>
-        <p>2026年5月にアーカイブされたスライド一覧</p>
+    <div class="site-header__inner glass">
+      <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+      <div class="glass__content site-header__content">
+        <div class="site-header__copy">
+          <h1>Archive 2026年5月</h1>
+          <p>2026年5月にアーカイブされたスライド一覧</p>
+        </div>
+        <button class="theme-toggle glass" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content theme-toggle__content">
+            <span class="theme-toggle__track" aria-hidden="true">
+              <span class="theme-toggle__thumb"></span>
+            </span>
+            <span class="theme-toggle__label" data-theme-label>Light</span>
+          </span>
+        </button>
       </div>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
-        <span class="theme-toggle__track" aria-hidden="true">
-          <span class="theme-toggle__thumb"></span>
-        </span>
-        <span class="theme-toggle__label" data-theme-label>Light</span>
-      </button>
     </div>
   </header>
 
   <main class="container">
-    <nav class="breadcrumb">
-      <a href="../../../">トップ</a> / <a href="../../">Archive</a> / <a href="../">2026年</a> / 5月
+    <nav class="breadcrumb glass">
+      <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+      <span class="glass__content breadcrumb__content"><a href="../../../">トップ</a> / <a href="../../">Archive</a> / <a href="../">2026年</a> / 5月</span>
     </nav>
 
     <h2>アーカイブ一覧</h2>
     <ul class="card-list">
       <li>
-        <a href="2026-05-27_%E6%97%85%E5%85%88%E3%81%A7%E3%82%82Web%E5%88%B6%E4%BD%9C%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%EF%BC%81/">
-          <span class="card-title">旅先でClaudeのスマホアプリからportfolioを編集してみた</span>
-          <span class="card-desc">旅先でClaudeのスマホアプリからGitHub上のportfolioを編集してみた制作メモ。</span>
+        <a class="card glass" href="2026-05-27_%E6%97%85%E5%85%88%E3%81%A7%E3%82%82Web%E5%88%B6%E4%BD%9C%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%EF%BC%81/">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content card__content">
+            <span class="card-title">旅先でClaudeのスマホアプリからportfolioを編集してみた</span>
+            <span class="card-desc">旅先でClaudeのスマホアプリからGitHub上のportfolioを編集してみた制作メモ。</span>
+            <span class="card-arrow" aria-hidden="true"></span>
+          </span>
         </a>
       </li>
       <li>
-        <a href="%E3%81%84%E3%81%AA%E3%81%92%E8%8B%A5%E8%80%85%E9%81%B8%E6%8C%99%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%E6%8F%90%E6%A1%88%E8%B3%87%E6%96%99/senkyo_2026-05-28/">
-          <span class="card-title">いなげ若者選挙プロジェクト 提案資料</span>
-          <span class="card-desc">いなげ若者選挙プロジェクト 提案資料/ に置かれているHTMLスライド</span>
+        <a class="card glass" href="%E3%81%84%E3%81%AA%E3%81%92%E8%8B%A5%E8%80%85%E9%81%B8%E6%8C%99%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%E6%8F%90%E6%A1%88%E8%B3%87%E6%96%99/senkyo_2026-05-28/">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content card__content">
+            <span class="card-title">いなげ若者選挙プロジェクト 提案資料</span>
+            <span class="card-desc">いなげ若者選挙プロジェクト 提案資料/ に置かれているHTMLスライド</span>
+            <span class="card-arrow" aria-hidden="true"></span>
+          </span>
         </a>
       </li>
       <li>
-        <a href="%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%82%B7%E3%83%A7%E3%83%BC%EF%BC%8F%E3%82%AB%E3%83%AB%E3%83%BC%E3%82%BB%E3%83%AB%E5%9E%8B%E5%BA%83%E5%91%8A%E5%88%B6%E4%BD%9C%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC/%E8%A6%8B%E8%BF%94%E3%81%97%E7%94%A8HTML/">
-          <span class="card-title">広告制作ワークフローガイド</span>
-          <span class="card-desc">スライドショー／カルーセル型広告を、企画から実装・レビューまで迷わず進めるための作業マニュアル</span>
+        <a class="card glass" href="%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%82%B7%E3%83%A7%E3%83%BC%EF%BC%8F%E3%82%AB%E3%83%AB%E3%83%BC%E3%82%BB%E3%83%AB%E5%9E%8B%E5%BA%83%E5%91%8A%E5%88%B6%E4%BD%9C%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC/%E8%A6%8B%E8%BF%94%E3%81%97%E7%94%A8HTML/">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content card__content">
+            <span class="card-title">広告制作ワークフローガイド</span>
+            <span class="card-desc">スライドショー／カルーセル型広告を、企画から実装・レビューまで迷わず進めるための作業マニュアル</span>
+            <span class="card-arrow" aria-hidden="true"></span>
+          </span>
         </a>
       </li>
       <li>
-        <a href="%E5%85%B1%E5%89%B5%E5%9E%8BTikTok%20CM%E4%BC%81%E7%94%BB%E6%A1%88/tiktok_cm_proposal.html">
-          <span class="card-title">共創型TikTok CM企画案</span>
-          <span class="card-desc">共創型TikTok CM企画案/ に置かれているHTMLスライド</span>
+        <a class="card glass" href="%E5%85%B1%E5%89%B5%E5%9E%8BTikTok%20CM%E4%BC%81%E7%94%BB%E6%A1%88/tiktok_cm_proposal.html">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content card__content">
+            <span class="card-title">共創型TikTok CM企画案</span>
+            <span class="card-desc">共創型TikTok CM企画案/ に置かれているHTMLスライド</span>
+            <span class="card-arrow" aria-hidden="true"></span>
+          </span>
         </a>
       </li>
       <li>
-        <a href="%E6%8E%A8%E3%81%97%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%A2%20LP%E5%88%B6%E4%BD%9C/html%E3%81%BE%E3%81%A8%E3%82%81/de-ta.html">
-          <span class="card-title">推しメモリア LP制作方針まとめ</span>
-          <span class="card-desc">推しメモリアのLP制作方針を、本文資料とスライド用画像を統合して整理した単一HTML資料。</span>
+        <a class="card glass" href="%E6%8E%A8%E3%81%97%E3%83%A1%E3%83%A2%E3%83%AA%E3%82%A2%20LP%E5%88%B6%E4%BD%9C/html%E3%81%BE%E3%81%A8%E3%82%81/de-ta.html">
+          <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+          <span class="glass__content card__content">
+            <span class="card-title">推しメモリア LP制作方針まとめ</span>
+            <span class="card-desc">推しメモリアのLP制作方針を、本文資料とスライド用画像を統合して整理した単一HTML資料。</span>
+            <span class="card-arrow" aria-hidden="true"></span>
+          </span>
         </a>
       </li>
     </ul>
 
-    <a class="back-link" href="../">← 2026年のアーカイブ月別一覧へ戻る</a>
+    <a class="back-link glass" href="../">
+      <span class="glass__filter" aria-hidden="true"></span><span class="glass__overlay" aria-hidden="true"></span><span class="glass__specular" aria-hidden="true"></span>
+      <span class="glass__content">← 2026年のアーカイブ月別一覧へ戻る</span>
+    </a>
   </main>
 
   <footer class="site-footer">

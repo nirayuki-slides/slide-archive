@@ -1,56 +1,75 @@
 /* ==========================================================
-   common.css - yuki Slide Archive generated index pages
+   common.css - yuki Slide Archive
+   Liquid Glass design system (snipzy.dev 系の4層ガラス構造を採用)
+   .glass > .glass__filter / .glass__overlay / .glass__specular / .glass__content
    ========================================================== */
 
 :root {
   color-scheme: light;
-  --color-bg: #f2fbf8;
-  --color-bg-2: #d8eee9;
-  --color-surface: rgba(255, 255, 255, 0.32);
-  --color-surface-strong: rgba(255, 255, 255, 0.46);
-  --color-text: #17211d;
-  --color-text-sub: #5f6f68;
-  --color-accent: #007c72;
-  --color-accent-strong: #005f58;
-  --color-warm: #c05d46;
-  --color-border: rgba(255, 255, 255, 0.58);
-  --color-glow: rgba(0, 124, 114, 0.22);
-  --shadow-panel: 0 30px 90px rgba(22, 68, 60, 0.18);
-  --shadow-card: 0 22px 62px rgba(22, 68, 60, 0.15);
+
+  /* レイアウト */
+  --max-width: 980px;
+  --radius-panel: 26px;
+  --radius-card: 20px;
+  --radius-pill: 999px;
+
+  /* ガラス */
+  --glass-blur: 7px;
+  --glass-tint: rgba(255, 255, 255, 0.5);
+  --glass-tint-soft: rgba(255, 255, 255, 0.32);
   --glass-highlight: rgba(255, 255, 255, 0.92);
-  --glass-edge: rgba(255, 255, 255, 0.72);
-  --glass-depth: rgba(0, 80, 72, 0.13);
-  --glass-refract: rgba(255, 255, 255, 0.27);
-  --glass-tint-high: rgba(255, 255, 255, 0.56);
-  --glass-tint-mid: rgba(255, 255, 255, 0.3);
-  --glass-tint-low: rgba(255, 255, 255, 0.08);
-  --max-width: 900px;
-  --radius-panel: 24px;
-  --radius-card: 18px;
+  --glass-edge: rgba(255, 255, 255, 0.55);
+  --glass-edge-inner: rgba(255, 255, 255, 0.5);
+  --glass-shadow-inner: rgba(8, 40, 36, 0.1);
+  --glass-sheen: rgba(255, 255, 255, 0.14);
+
+  --drop-panel: 0 18px 50px rgba(15, 50, 45, 0.18);
+  --drop-card: 0 12px 34px rgba(15, 50, 45, 0.14);
+  --drop-pill: 0 8px 22px rgba(15, 50, 45, 0.12);
+
+  /* 文字・アクセント */
+  --text: #14211d;
+  --text-sub: #46564f;
+  --accent: #0c7d70;
+  --accent-strong: #075c52;
+  --accent-warm: #c75b40;
+  --focus: rgba(12, 125, 112, 0.5);
+
+  /* 背景オーロラ */
+  --bg-base: linear-gradient(160deg, #eafaf4 0%, #e4f1ff 55%, #f5edff 100%);
+  --aurora-1: rgba(120, 230, 205, 0.55);
+  --aurora-2: rgba(255, 188, 162, 0.5);
+  --aurora-3: rgba(150, 180, 255, 0.5);
+  --aurora-4: rgba(255, 233, 150, 0.45);
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --color-bg: #111513;
-  --color-bg-2: #18231f;
-  --color-surface: rgba(19, 30, 27, 0.34);
-  --color-surface-strong: rgba(31, 43, 39, 0.48);
-  --color-text: #eef6f2;
-  --color-text-sub: #a7b8b1;
-  --color-accent: #74d8c9;
-  --color-accent-strong: #a5eee2;
-  --color-warm: #f0a085;
-  --color-border: rgba(221, 255, 246, 0.22);
-  --color-glow: rgba(116, 216, 201, 0.2);
-  --shadow-panel: 0 32px 96px rgba(0, 0, 0, 0.44);
-  --shadow-card: 0 24px 68px rgba(0, 0, 0, 0.34);
-  --glass-highlight: rgba(255, 255, 255, 0.24);
-  --glass-edge: rgba(221, 255, 246, 0.34);
-  --glass-depth: rgba(0, 0, 0, 0.28);
-  --glass-refract: rgba(116, 216, 201, 0.1);
-  --glass-tint-high: rgba(255, 255, 255, 0.14);
-  --glass-tint-mid: rgba(255, 255, 255, 0.08);
-  --glass-tint-low: rgba(255, 255, 255, 0.03);
+
+  --glass-tint: rgba(18, 26, 24, 0.48);
+  --glass-tint-soft: rgba(18, 26, 24, 0.32);
+  --glass-highlight: rgba(255, 255, 255, 0.22);
+  --glass-edge: rgba(255, 255, 255, 0.14);
+  --glass-edge-inner: rgba(255, 255, 255, 0.12);
+  --glass-shadow-inner: rgba(0, 0, 0, 0.36);
+  --glass-sheen: rgba(255, 255, 255, 0.06);
+
+  --drop-panel: 0 22px 60px rgba(0, 0, 0, 0.5);
+  --drop-card: 0 16px 40px rgba(0, 0, 0, 0.42);
+  --drop-pill: 0 10px 26px rgba(0, 0, 0, 0.4);
+
+  --text: #eaf4f0;
+  --text-sub: #a6b6b0;
+  --accent: #5fd9c8;
+  --accent-strong: #93ece0;
+  --accent-warm: #f0a184;
+  --focus: rgba(95, 217, 200, 0.55);
+
+  --bg-base: linear-gradient(160deg, #0b1413 0%, #0d1620 58%, #120f1d 100%);
+  --aurora-1: rgba(20, 150, 135, 0.5);
+  --aurora-2: rgba(150, 70, 165, 0.42);
+  --aurora-3: rgba(40, 90, 180, 0.5);
+  --aurora-4: rgba(220, 150, 90, 0.32);
 }
 
 * {
@@ -66,64 +85,132 @@ body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans",
     "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
-  background:
-    linear-gradient(115deg, rgba(0, 124, 114, 0.16), transparent 33%),
-    linear-gradient(245deg, rgba(192, 93, 70, 0.16), transparent 38%),
-    linear-gradient(25deg, rgba(255, 255, 255, 0.34), transparent 44%),
-    linear-gradient(180deg, var(--color-bg), var(--color-bg-2));
-  background-attachment: fixed;
-  color: var(--color-text);
+  color: var(--text);
   line-height: 1.75;
-  transition: background-color 180ms ease, color 180ms ease;
+  background: var(--bg-base) fixed;
+  transition: color 200ms ease;
 }
 
+/* 流れるオーロラ(透過を映えさせる動く背景) */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  z-index: -1;
+  inset: -35%;
+  z-index: -2;
   pointer-events: none;
   background:
-    linear-gradient(108deg, transparent 0 15%, rgba(255, 255, 255, 0.5) 21%, rgba(255, 255, 255, 0.12) 27%, transparent 39%),
-    linear-gradient(288deg, transparent 0 51%, rgba(0, 124, 114, 0.18) 68%, transparent 84%),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 18px);
-  mix-blend-mode: soft-light;
-  opacity: 0.86;
+    radial-gradient(38% 38% at 28% 30%, var(--aurora-1), transparent 62%),
+    radial-gradient(36% 36% at 74% 22%, var(--aurora-2), transparent 60%),
+    radial-gradient(40% 40% at 68% 74%, var(--aurora-3), transparent 62%),
+    radial-gradient(34% 34% at 24% 82%, var(--aurora-4), transparent 60%);
+  filter: blur(34px);
+  animation: aurora 30s ease-in-out infinite alternate;
 }
 
-html[data-theme="dark"] body::before {
-  background:
-    linear-gradient(108deg, transparent 0 18%, rgba(255, 255, 255, 0.14) 25%, rgba(255, 255, 255, 0.04) 32%, transparent 46%),
-    linear-gradient(288deg, transparent 0 52%, rgba(116, 216, 201, 0.17) 69%, transparent 84%),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
-  opacity: 0.92;
-}
-
+/* 細かなきらめき(質感の粒) */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    conic-gradient(from 132deg at 16% 18%, transparent 0 18%, rgba(255, 255, 255, 0.2) 25%, transparent 34%),
-    conic-gradient(from 310deg at 84% 14%, transparent 0 20%, rgba(0, 124, 114, 0.14) 30%, transparent 42%),
-    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.16));
-  filter: blur(0.2px);
-  opacity: 0.8;
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.4px);
+  background-size: 4px 4px;
+  mix-blend-mode: soft-light;
 }
 
-html[data-theme="dark"] body::after {
-  background:
-    conic-gradient(from 132deg at 16% 18%, transparent 0 18%, rgba(255, 255, 255, 0.08) 25%, transparent 34%),
-    conic-gradient(from 310deg at 84% 14%, transparent 0 20%, rgba(116, 216, 201, 0.12) 30%, transparent 42%),
-    linear-gradient(180deg, transparent, rgba(116, 216, 201, 0.04));
-  opacity: 0.72;
+@keyframes aurora {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotate(-4deg) scale(1.05);
+  }
+  100% {
+    transform: translate3d(4%, 3%, 0) rotate(6deg) scale(1.12);
+  }
 }
 
 a {
-  color: var(--color-accent-strong);
+  color: var(--accent-strong);
 }
+
+.liquid-glass-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ==========================================================
+   Liquid Glass core
+   ========================================================== */
+
+.glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-card);
+  background: transparent;
+}
+
+.glass__filter,
+.glass__overlay,
+.glass__specular {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* 1) 背景のぼかし + 液状の屈折 */
+.glass__filter {
+  z-index: 0;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  filter: url(#liquidGlass) saturate(118%) brightness(1.06);
+}
+
+/* 2) 半透明の色(ガラスの本体)+ ゆっくり動くシーン */
+.glass__overlay {
+  z-index: 1;
+  background:
+    radial-gradient(125% 90% at 18% 12%, var(--glass-sheen), transparent 55%),
+    radial-gradient(125% 120% at 84% 88%, var(--glass-sheen), transparent 60%),
+    var(--glass-tint);
+  background-size: 180% 180%, 180% 180%, auto;
+  animation: glassFloat 16s ease-in-out infinite;
+}
+
+/* 3) 縁のハイライト(厚みのある立体感) */
+.glass__specular {
+  z-index: 2;
+  box-shadow:
+    inset 1.5px 1.5px 1px var(--glass-highlight),
+    inset 0 0 0 1px var(--glass-edge-inner),
+    inset -1px -1.5px 2px var(--glass-shadow-inner);
+}
+
+/* 4) 中身 */
+.glass__content {
+  position: relative;
+  z-index: 3;
+  display: block;
+}
+
+@keyframes glassFloat {
+  0%,
+  100% {
+    background-position: 0% 0%, 100% 100%, 0 0;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 0 0;
+  }
+}
+
+/* ==========================================================
+   レイアウト
+   ========================================================== */
 
 .container {
   max-width: var(--max-width);
@@ -136,164 +223,134 @@ header.site-header {
 }
 
 .site-header__inner {
-  position: relative;
-  display: flex;
   max-width: var(--max-width);
-  min-height: 118px;
   margin: 0 auto;
-  padding: 1.25rem;
+  border-radius: var(--radius-panel);
+  box-shadow: var(--drop-panel);
+}
+
+.site-header__content {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, var(--glass-tint-high), var(--glass-tint-low) 43%, var(--glass-tint-mid)),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-panel);
-  box-shadow:
-    var(--shadow-panel),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 -1px 0 var(--glass-depth),
-    inset 1px 0 0 var(--glass-edge);
-  backdrop-filter: blur(38px) saturate(210%) contrast(106%);
-  -webkit-backdrop-filter: blur(38px) saturate(210%) contrast(106%);
-}
-
-.site-header__inner::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: calc(var(--radius-panel) - 1px);
-  background:
-    linear-gradient(130deg, var(--glass-highlight), transparent 30%),
-    linear-gradient(300deg, transparent 42%, var(--glass-refract)),
-    linear-gradient(180deg, transparent, var(--glass-depth));
-  opacity: 0.78;
-  pointer-events: none;
-}
-
-.site-header__inner::after {
-  content: "";
-  position: absolute;
-  top: -45%;
-  left: -20%;
-  width: 58%;
-  height: 180%;
-  pointer-events: none;
-  background: linear-gradient(112deg, transparent 0 35%, rgba(255, 255, 255, 0.58) 46%, transparent 58%);
-  opacity: 0.42;
-  transform: rotate(7deg);
-}
-
-.site-header__copy,
-.theme-toggle {
-  position: relative;
-  z-index: 1;
+  min-height: 118px;
+  padding: 1.4rem 1.6rem;
 }
 
 header.site-header h1 {
   margin: 0;
-  font-size: clamp(1.55rem, 3vw, 2.35rem);
-  letter-spacing: 0;
-  line-height: 1.18;
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  line-height: 1.16;
+  letter-spacing: 0.01em;
 }
 
 header.site-header p {
   max-width: 44rem;
   margin: 0.45rem 0 0;
-  color: var(--color-text-sub);
+  color: var(--text-sub);
   font-size: 0.98rem;
 }
 
+footer.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem 1.6rem 2rem;
+  color: var(--text-sub);
+  font-size: 0.86rem;
+}
+
+/* ==========================================================
+   テーマ切替トグル
+   ========================================================== */
+
 .theme-toggle {
+  flex: 0 0 auto;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--drop-pill);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: scale(0.97);
+}
+
+.theme-toggle__content {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  flex: 0 0 auto;
-  min-height: 42px;
-  padding: 0.45rem 0.7rem 0.45rem 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background:
-    linear-gradient(135deg, var(--glass-tint-mid), var(--glass-tint-low)),
-    var(--color-surface-strong);
-  box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 -1px 0 var(--glass-depth),
-    0 12px 28px rgba(0, 0, 0, 0.08);
-  color: var(--color-text);
-  font: inherit;
-  cursor: pointer;
-  backdrop-filter: blur(26px) saturate(190%);
-  -webkit-backdrop-filter: blur(26px) saturate(190%);
-}
-
-.theme-toggle:focus-visible,
-ul.card-list a:focus-visible,
-.back-link:focus-visible,
-nav.breadcrumb a:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--color-accent) 42%, transparent);
-  outline-offset: 3px;
+  padding: 0.42rem 0.8rem 0.42rem 0.5rem;
 }
 
 .theme-toggle__track {
   position: relative;
-  width: 44px;
-  height: 24px;
-  border-radius: 999px;
-  background: rgba(95, 111, 104, 0.24);
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.12);
+  width: 46px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 40, 36, 0.22);
+  box-shadow:
+    inset 0 1px 4px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="dark"] .theme-toggle__track {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .theme-toggle__thumb {
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ffffff, #d8f4ed);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
-  transition: transform 180ms ease;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff, #d9f4ed);
+  box-shadow:
+    0 3px 9px rgba(0, 0, 0, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 html[data-theme="dark"] .theme-toggle__thumb {
   transform: translateX(20px);
-  background: linear-gradient(135deg, #d8fff7, #74d8c9);
+  background: linear-gradient(135deg, #d8fff7, #5fd9c8);
 }
 
 .theme-toggle__label {
   min-width: 2.4rem;
   font-size: 0.82rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-footer.site-footer {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem;
-  color: var(--color-text-sub);
-  font-size: 0.86rem;
-}
+/* ==========================================================
+   見出し
+   ========================================================== */
 
 h2 {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin: 2.25rem 0 0.85rem;
-  color: var(--color-text);
-  font-size: 1.05rem;
-  letter-spacing: 0;
+  margin: 2.35rem 0 0.95rem;
+  color: var(--text);
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
 }
 
 h2::before {
   content: "";
-  width: 0.65rem;
-  height: 0.65rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-warm));
-  box-shadow: 0 0 24px var(--color-glow);
+  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 h3 {
@@ -301,9 +358,13 @@ h3 {
   font-size: 1.05rem;
 }
 
+/* ==========================================================
+   カード一覧
+   ========================================================== */
+
 ul.card-list {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.95rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -313,140 +374,121 @@ ul.card-list li {
   margin: 0;
 }
 
-ul.card-list a {
-  position: relative;
+.card {
   display: block;
-  min-height: 94px;
-  overflow: hidden;
-  padding: 1rem 1.1rem;
-  color: var(--color-text);
-  text-decoration: none;
-  background:
-    linear-gradient(135deg, var(--glass-tint-mid), var(--glass-tint-low) 48%, var(--glass-refract)),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  box-shadow:
-    var(--shadow-card),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 -1px 0 var(--glass-depth),
-    inset 1px 0 0 var(--glass-edge);
-  backdrop-filter: blur(34px) saturate(205%) contrast(106%);
-  -webkit-backdrop-filter: blur(34px) saturate(205%) contrast(106%);
-  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  box-shadow: var(--drop-card);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 
-ul.card-list a::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: calc(var(--radius-card) - 1px);
-  background:
-    linear-gradient(128deg, var(--glass-highlight), transparent 32%),
-    linear-gradient(285deg, transparent 44%, var(--glass-refract) 74%, transparent),
-    linear-gradient(180deg, transparent 58%, var(--glass-depth));
-  opacity: 0.76;
-  pointer-events: none;
-}
-
-ul.card-list a::after {
-  content: "";
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid var(--color-accent);
-  border-right: 2px solid var(--color-accent);
-  opacity: 0.82;
-  transform: rotate(45deg);
-}
-
-ul.card-list a:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--color-accent) 42%, var(--color-border));
-  box-shadow: 0 24px 62px var(--color-glow), inset 0 1px 0 var(--glass-highlight);
-}
-
-ul.card-list .card-title,
-ul.card-list .card-desc {
+.card__content {
   position: relative;
-  z-index: 1;
+  min-height: 96px;
+  padding: 1.05rem 2.6rem 1.05rem 1.25rem;
 }
 
-ul.card-list .card-title {
+.card-title {
   display: block;
-  padding-right: 1.5rem;
-  color: var(--color-accent-strong);
+  color: var(--accent-strong);
   font-weight: 800;
   line-height: 1.35;
 }
 
-ul.card-list .card-desc {
+.card-desc {
   display: block;
   margin-top: 0.3rem;
-  color: var(--color-text-sub);
+  color: var(--text-sub);
   font-size: 0.9rem;
 }
 
-nav.breadcrumb {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-bottom: 1.15rem;
-  padding: 0.45rem 0.7rem;
-  color: var(--color-text-sub);
-  background:
-    linear-gradient(135deg, var(--glass-tint-mid), var(--glass-tint-low)),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  font-size: 0.86rem;
-  box-shadow: inset 0 1px 0 var(--glass-highlight);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
+.card-arrow {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 9px;
+  height: 9px;
+  margin-top: -5px;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  transform: rotate(45deg);
+  opacity: 0.85;
+  transition: transform 200ms ease, opacity 200ms ease;
 }
 
-nav.breadcrumb a {
-  color: var(--color-text-sub);
+.card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--glass-edge));
+  box-shadow: 0 22px 54px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.card:hover .card-arrow {
+  transform: rotate(45deg) translate(2px, -2px);
+  opacity: 1;
+}
+
+/* ==========================================================
+   パンくず / 戻るリンク
+   ========================================================== */
+
+.breadcrumb {
+  display: inline-flex;
+  margin-bottom: 1.2rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--drop-pill);
+  font-size: 0.86rem;
+}
+
+.breadcrumb__content {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.95rem;
+  color: var(--text-sub);
+}
+
+.breadcrumb a {
+  color: var(--text-sub);
   text-decoration: none;
 }
 
-nav.breadcrumb a:hover {
-  color: var(--color-accent-strong);
+.breadcrumb a:hover {
+  color: var(--accent-strong);
 }
 
 .back-link {
   display: inline-flex;
   margin-top: 2rem;
-  padding: 0.62rem 0.85rem;
-  align-items: center;
-  color: var(--color-accent-strong);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--drop-pill);
+  color: var(--accent-strong);
   text-decoration: none;
-  background:
-    linear-gradient(135deg, var(--glass-tint-mid), var(--glass-tint-low)),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  box-shadow: inset 0 1px 0 var(--glass-highlight);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  transition: transform 160ms ease;
 }
+
+.back-link:hover {
+  transform: translateY(-1px);
+}
+
+.back-link .glass__content {
+  padding: 0.62rem 1.05rem;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   セクション(注意書きなど)
+   ========================================================== */
 
 .slide-section {
   margin: 1rem 0 1.5rem;
-  padding: 1.25rem;
-  background:
-    linear-gradient(135deg, var(--glass-tint-mid), var(--glass-tint-low)),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  box-shadow:
-    var(--shadow-card),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 -1px 0 var(--glass-depth);
-  backdrop-filter: blur(34px) saturate(205%) contrast(106%);
-  -webkit-backdrop-filter: blur(34px) saturate(205%) contrast(106%);
+  box-shadow: var(--drop-card);
+}
+
+.slide-section .glass__content {
+  padding: 1.3rem 1.5rem;
 }
 
 .slide-section h2 {
@@ -458,15 +500,37 @@ nav.breadcrumb a:hover {
   height: auto;
 }
 
+.empty-note {
+  margin: 0.5rem 0;
+  color: var(--text-sub);
+}
+
+/* ==========================================================
+   フォーカス
+   ========================================================== */
+
+.theme-toggle:focus-visible,
+.card:focus-visible,
+.back-link:focus-visible,
+.breadcrumb a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   フォールバック / アクセシビリティ / レスポンシブ
+   ========================================================== */
+
+/* backdrop-filter 非対応時はガラスを濃いめにして可読性を確保 */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   :root {
-    --color-surface: rgba(255, 255, 255, 0.92);
-    --color-surface-strong: rgba(255, 255, 255, 0.96);
+    --glass-tint: rgba(255, 255, 255, 0.84);
+    --glass-tint-soft: rgba(255, 255, 255, 0.72);
   }
 
   html[data-theme="dark"] {
-    --color-surface: rgba(25, 31, 28, 0.92);
-    --color-surface-strong: rgba(34, 42, 38, 0.96);
+    --glass-tint: rgba(20, 28, 26, 0.86);
+    --glass-tint-soft: rgba(20, 28, 26, 0.74);
   }
 }
 
@@ -474,6 +538,8 @@ nav.breadcrumb a:hover {
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
@@ -492,26 +558,24 @@ nav.breadcrumb a:hover {
     padding: 0.75rem;
   }
 
-  .site-header__inner {
-    min-height: 0;
-    padding: 1rem;
-    align-items: flex-start;
+  .site-header__content {
     flex-direction: column;
-    border-radius: 20px;
-  }
-
-  .theme-toggle {
-    align-self: flex-start;
-  }
-
-  ul.card-list a {
+    align-items: flex-start;
     min-height: 0;
-    padding: 0.95rem 1rem;
-    border-radius: 16px;
+    padding: 1.1rem 1.2rem;
   }
 
+  .site-header__inner {
+    border-radius: 22px;
+  }
+
+  .card__content {
+    min-height: 0;
+    padding: 0.95rem 2.4rem 0.95rem 1.1rem;
+  }
+
+  .card,
   .slide-section {
-    padding: 1rem;
-    border-radius: 16px;
+    border-radius: 18px;
   }
 }

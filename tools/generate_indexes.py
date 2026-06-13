@@ -22,6 +22,49 @@ GENERATED_COMMENT = (
     "手動編集せず、フォルダ構成を変更してからスクリプトを実行してください。 -->"
 )
 
+# Liquid Glass の4層構造(filter=ぼかし+屈折 / overlay=色 / specular=縁の光 / content=中身)
+GLASS_LAYERS = (
+    '<span class="glass__filter" aria-hidden="true"></span>'
+    '<span class="glass__overlay" aria-hidden="true"></span>'
+    '<span class="glass__specular" aria-hidden="true"></span>'
+)
+
+# 背景の液状屈折に使う SVG フィルタ(snipzy.dev 系の feTurbulence + feDisplacementMap)
+SVG_DEFS = (
+    '  <svg class="liquid-glass-defs" aria-hidden="true" focusable="false" '
+    'width="0" height="0">\n'
+    '    <filter id="liquidGlass" x="-20%" y="-20%" width="140%" height="140%" '
+    'color-interpolation-filters="sRGB">\n'
+    '      <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" '
+    'seed="12" result="noise"></feTurbulence>\n'
+    '      <feDisplacementMap in="SourceGraphic" in2="noise" scale="70" '
+    'xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>\n'
+    '    </filter>\n'
+    '  </svg>'
+)
+
+
+def glass_breadcrumb(inner: str) -> str:
+    return "\n".join(
+        [
+            '    <nav class="breadcrumb glass">',
+            f"      {GLASS_LAYERS}",
+            f'      <span class="glass__content breadcrumb__content">{inner}</span>',
+            "    </nav>",
+        ]
+    )
+
+
+def glass_back_link(href: str, label: str) -> str:
+    return "\n".join(
+        [
+            f'    <a class="back-link glass" href="{escape(href, quote=True)}">',
+            f"      {GLASS_LAYERS}",
+            f'      <span class="glass__content">← {escape(label)}</span>',
+            "    </a>",
+        ]
+    )
+
 
 @dataclass(frozen=True)
 class Slide:
@@ -197,16 +240,20 @@ def total_slide_count(years: list[Year]) -> int:
 
 def card_list(items: list[tuple[str, str, str]], empty_message: str) -> str:
     if not items:
-        return f"    <p>{escape(empty_message)}</p>"
+        return f"    <p class=\"empty-note\">{escape(empty_message)}</p>"
 
     lines = ["    <ul class=\"card-list\">"]
     for href, title, description in items:
         lines.extend(
             [
                 "      <li>",
-                f"        <a href=\"{escape(href, quote=True)}\">",
-                f"          <span class=\"card-title\">{escape(title)}</span>",
-                f"          <span class=\"card-desc\">{escape(description)}</span>",
+                f"        <a class=\"card glass\" href=\"{escape(href, quote=True)}\">",
+                f"          {GLASS_LAYERS}",
+                "          <span class=\"glass__content card__content\">",
+                f"            <span class=\"card-title\">{escape(title)}</span>",
+                f"            <span class=\"card-desc\">{escape(description)}</span>",
+                "            <span class=\"card-arrow\" aria-hidden=\"true\"></span>",
+                "          </span>",
                 "        </a>",
                 "      </li>",
             ]
@@ -238,18 +285,25 @@ def page(title: str, css_href: str, header_title: str, header_desc: str, body: s
 </head>
 <body>
   {GENERATED_COMMENT}
+{SVG_DEFS}
   <header class="site-header">
-    <div class="site-header__inner">
-      <div class="site-header__copy">
-        <h1>{escape(header_title)}</h1>
-        <p>{escape(header_desc)}</p>
+    <div class="site-header__inner glass">
+      {GLASS_LAYERS}
+      <div class="glass__content site-header__content">
+        <div class="site-header__copy">
+          <h1>{escape(header_title)}</h1>
+          <p>{escape(header_desc)}</p>
+        </div>
+        <button class="theme-toggle glass" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
+          {GLASS_LAYERS}
+          <span class="glass__content theme-toggle__content">
+            <span class="theme-toggle__track" aria-hidden="true">
+              <span class="theme-toggle__thumb"></span>
+            </span>
+            <span class="theme-toggle__label" data-theme-label>Light</span>
+          </span>
+        </button>
       </div>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードとライトモードを切り替える" aria-pressed="false">
-        <span class="theme-toggle__track" aria-hidden="true">
-          <span class="theme-toggle__thumb"></span>
-        </span>
-        <span class="theme-toggle__label" data-theme-label>Light</span>
-      </button>
     </div>
   </header>
 
@@ -352,14 +406,12 @@ def year_body(year: Year) -> str:
     ]
     return "\n".join(
         [
-            "    <nav class=\"breadcrumb\">",
-            "      <a href=\"../\">トップ</a> / " + escape(f"{year.slug}年"),
-            "    </nav>",
+            glass_breadcrumb('<a href="../">トップ</a> / ' + escape(f"{year.slug}年")),
             "",
             "    <h2>月別一覧</h2>",
             card_list(month_items, f"{year.slug}年の月別フォルダはまだありません。"),
             "",
-            "    <a class=\"back-link\" href=\"../\">← トップへ戻る</a>",
+            glass_back_link("../", "トップへ戻る"),
         ]
     )
 
@@ -372,16 +424,14 @@ def month_body(year: Year, month: Month) -> str:
     month_label = f"{int(month.slug)}月"
     return "\n".join(
         [
-            "    <nav class=\"breadcrumb\">",
-            f"      <a href=\"../../\">トップ</a> / <a href=\"../\">{escape(year.slug)}年</a> / {escape(month_label)}",
-            "    </nav>",
+            glass_breadcrumb(
+                f'<a href="../../">トップ</a> / <a href="../">{escape(year.slug)}年</a> / {escape(month_label)}'
+            ),
             "",
             "    <h2>スライド一覧</h2>",
             card_list(slide_items, f"{year.slug}年{month_label}のスライドはまだありません。"),
             "",
-            "    <a class=\"back-link\" href=\"../\">← "
-            + escape(f"{year.slug}年の月別一覧へ戻る")
-            + "</a>",
+            glass_back_link("../", f"{year.slug}年の月別一覧へ戻る"),
         ]
     )
 
@@ -397,22 +447,23 @@ def archive_body(years: list[Year]) -> str:
     ]
     return "\n".join(
         [
-            "    <nav class=\"breadcrumb\">",
-            "      <a href=\"../\">トップ</a> / Archive",
-            "    </nav>",
+            glass_breadcrumb('<a href="../">トップ</a> / Archive'),
             "",
             "    <h2>年別一覧</h2>",
             card_list(year_items, "現在アーカイブされたスライドはありません。"),
             "",
-            "    <section class=\"slide-section\">",
-            "      <h2>注意</h2>",
-            "      <p>",
-            "        このフォルダもGitHub Pagesで公開される可能性があります。",
-            "        非公開情報・個人情報・内部資料は置かないでください。",
-            "      </p>",
+            "    <section class=\"slide-section glass\">",
+            f"      {GLASS_LAYERS}",
+            "      <div class=\"glass__content\">",
+            "        <h2>注意</h2>",
+            "        <p>",
+            "          このフォルダもGitHub Pagesで公開される可能性があります。",
+            "          非公開情報・個人情報・内部資料は置かないでください。",
+            "        </p>",
+            "      </div>",
             "    </section>",
             "",
-            "    <a class=\"back-link\" href=\"../\">← トップへ戻る</a>",
+            glass_back_link("../", "トップへ戻る"),
         ]
     )
 
@@ -428,14 +479,14 @@ def archive_year_body(year: Year) -> str:
     ]
     return "\n".join(
         [
-            "    <nav class=\"breadcrumb\">",
-            f"      <a href=\"../../\">トップ</a> / <a href=\"../\">Archive</a> / {escape(year.slug)}年",
-            "    </nav>",
+            glass_breadcrumb(
+                f'<a href="../../">トップ</a> / <a href="../">Archive</a> / {escape(year.slug)}年'
+            ),
             "",
             "    <h2>月別一覧</h2>",
             card_list(month_items, f"{year.slug}年にアーカイブされたスライドはまだありません。"),
             "",
-            "    <a class=\"back-link\" href=\"../\">← Archiveへ戻る</a>",
+            glass_back_link("../", "Archiveへ戻る"),
         ]
     )
 
@@ -448,16 +499,15 @@ def archive_month_body(year: Year, month: Month) -> str:
     month_label = f"{int(month.slug)}月"
     return "\n".join(
         [
-            "    <nav class=\"breadcrumb\">",
-            f"      <a href=\"../../../\">トップ</a> / <a href=\"../../\">Archive</a> / <a href=\"../\">{escape(year.slug)}年</a> / {escape(month_label)}",
-            "    </nav>",
+            glass_breadcrumb(
+                f'<a href="../../../">トップ</a> / <a href="../../">Archive</a> / '
+                f'<a href="../">{escape(year.slug)}年</a> / {escape(month_label)}'
+            ),
             "",
             "    <h2>アーカイブ一覧</h2>",
             card_list(slide_items, f"{year.slug}年{month_label}にアーカイブされたスライドはまだありません。"),
             "",
-            "    <a class=\"back-link\" href=\"../\">← "
-            + escape(f"{year.slug}年のアーカイブ月別一覧へ戻る")
-            + "</a>",
+            glass_back_link("../", f"{year.slug}年のアーカイブ月別一覧へ戻る"),
         ]
     )
 
